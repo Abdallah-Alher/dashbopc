@@ -814,23 +814,11 @@ a {
    📱 RESPONSIVE – ANALYTICS
 ========================================================= */
 
-/* Medium */
-@media (max-width: 1024px) {
-  .dashboard-section {
-    padding: 1.5rem;
-  }
-
-  .analytics-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sales-card .bars {
-    height: 240px;
-  }
-}
-
 /* Layout + stats + topbar pour mobile */
+/* Layout + stats + topbar pour mobile / tablette (768px) */
 @media (max-width: 768px) {
+  /* ====== TOPBAR / LAYOUT GÉNÉRAL (comme dashboard) ====== */
+
   /* Hamburger visible */
   .hamburger {
     display: block;
@@ -847,19 +835,18 @@ a {
   .main-content {
     margin-left: 0 !important;
     padding-top: 85px;
-    width: 95%;
-    max-width: 95%;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .dashboard-section {
-    width: 95%;
-    max-width: 95%;
-    margin: 0 auto;
-    padding-left: 0;
-    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem 1rem 1.25rem;
   }
 
   /* Sidebar mobile */
@@ -910,22 +897,79 @@ a {
     font-size: 1rem;
   }
 
-  /* stats : 2 colonnes sur tablette */
-  .stats-container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+  /* ====== 4 CARTES ANALYTICS (2 par ligne) ====== */
 
-/* Très petit écran */
-@media (max-width: 480px) {
   .stats-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 
   .stats-card {
     padding: 1.5rem;
   }
+
+  /* ====== SECTION GRAPHIQUES ====== */
+
+  .analytics-grid {
+    grid-template-columns: 1fr;     /* une seule colonne */
+    width: 100%;
+    padding: 0 0 1.5rem;
+    margin-top: 1rem;
+    gap: 1.5rem;
+  }
+
+  .card-panel {
+    border-radius: 0.75rem;
+    width: 100%;
+  }
+
+  .sales-card,
+  .split-card {
+    margin: 0;
+  }
+
+  /* Graphe barres – on compacte un peu pour tout faire tenir */
+  .sales-card .bars {
+    height: 220px;
+    gap: 0.6rem;
+    padding: 1rem 0.5rem 0;
+  }
+
+  .bar-labels {
+    gap: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  /* ====== TOP PRODUITS (carte pleine largeur) ====== */
+
+  .top-products {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  /* → Titre en haut, select en dessous comme demandé */
+  .top-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .select-sort {
+    width: 100%;
+  }
+
+  .select-sort select {
+    width: 100%;
+  }
+
+  .top-table th,
+  .top-table td {
+    font-size: 0.9rem;
+    padding: 0.75rem 0.4rem;
+  }
 }
+
 
 /* =========================================================
    POPUP PROFIL (commun aux pages qui ont le modal profil)
