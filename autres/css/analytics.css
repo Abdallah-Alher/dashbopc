@@ -321,7 +321,7 @@ a {
    (section.dashboard-section)
    ========================================================= */
 .dashboard-section {
-  padding: 2rem;
+  /* padding: 0.rem; */
 }
 
 .dashboard-section h2 {
@@ -346,19 +346,23 @@ a {
 }
 
 /* ========= CARTES STATISTIQUES ========= */
+/* ========= CARTES STATISTIQUES ========= */
+/* Desktop : 4 cartes alignées comme sur dashboard */
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
 }
+
 
 .stats-card {
   background-color: #fff;
   border-radius: 0.75rem;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
@@ -380,24 +384,24 @@ a {
 
 /* texte et chiffres */
 .stats-card h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
+  padding-top: 1rem;
+  
 }
 
 .stats-card p {
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  margin-top: 0.3rem;
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
 }
 
 .stats-card .badge {
   display: inline-block;
   font-size: 0.8rem;
   font-weight: 600;
-  margin-top: 0.4rem;
   border-radius: 6px;
-  padding: 0.25rem 0.5rem;
 }
 
 /* Couleurs des icônes */
@@ -423,7 +427,6 @@ a {
   background-color: #fee2e2;
   color: #991b1b;
 }
-
 /* =========================================================
    ANALYTICS : SECTION 2 (graphiques)
 ========================================================= */
@@ -432,7 +435,7 @@ a {
   grid-template-columns: 2fr 1fr;
   gap: 1.5rem;
   margin-top: 1.5rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 /* Panneaux génériques */
@@ -467,34 +470,38 @@ a {
 }
 
 /* Select (aucun JS) */
+/* === Select "30 derniers jours" : icône dans le champ === */
 .select-wrap {
   position: relative;
+  display: inline-block;
+  align-self: flex-start;      /* ← très important : ne plus s’étirer sur toute la largeur */
 }
 
 .select-wrap select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  padding: 0.55rem 1.5rem;
+  border-radius: 999px;
+  padding: 0.55rem 2.5rem 0.55rem 1.5rem;  /* espace à droite pour l’icône */
   font-size: 0.95rem;
   color: var(--text-primary);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
+/* Icône Font Awesome à l’intérieur du champ */
 .select-wrap::after {
   content: "\f078"; /* fa-chevron-down */
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
   top: 50%;
-  right: 0.9rem;
+  right: 1.1rem;
   transform: translateY(-50%);
   color: var(--text-secondary);
   pointer-events: none;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 /* --------- GRAPHIQUE A BARRES (CSS only) --------- */
@@ -502,13 +509,14 @@ a {
   padding: 1rem 1.25rem 1.25rem;
 }
 
+/* === Barres + labels : 12 mois visibles sans être coupés === */
 .bars {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: end;
-  gap: 1rem;
-  height: 280px; /* hauteur du graphe */
-  padding: 1.25rem 1rem 0;
+  gap: 0.7rem;                            /* moins d’espace entre les barres */
+  height: 280px;
+  padding: 1.1rem 0.4rem 0;               /* padding latéral réduit */
   background: linear-gradient(#ffffff, #fbfdff);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
@@ -591,17 +599,19 @@ a {
 .bar-labels {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-  margin-top: 0.75rem;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
   text-align: center;
 }
 
 .bar-labels span {
   display: block;
+  font-size: 0.8rem;
   color: var(--text-secondary);
 }
 
 .bar-labels small {
+  font-size: 0.75rem;
   color: var(--text-secondary);
 }
 
@@ -642,16 +652,17 @@ a {
   padding: 0 1.25rem 1rem;
 }
 
+/* === Répartition par Catégorie : % en face de la barre === */
 .split-list li {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-areas:
     "label amount"
-    "bar   bar"
-    "perc  perc";
-  row-gap: 0.4rem;
+    "bar   percent";
+  row-gap: 0.5rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--border-color);
+  align-items: center;
 }
 
 .split-list li:last-child {
@@ -675,6 +686,7 @@ a {
   background: #f1f5f9;
   border-radius: 4px;
   overflow: hidden;
+  margin-right: 0.75rem; /* espace avant le % */
 }
 
 .split-list .progress span {
@@ -684,11 +696,11 @@ a {
 }
 
 .split-list .percent {
-  grid-area: perc;
+  grid-area: percent;
+  text-align: right;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  font-size: 0.9rem;
 }
-
 /* =========================================================
    ANALYTICS – SECTION 3 : TOP PRODUITS
 ========================================================= */
