@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rapports | StockManager Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/rapports.css" />
+</head>
+
+<body>
+    <section class="dashboard-container">
+        <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Dashboard</h2>
+            </div>
+
+            <nav class="menu">
+                <a href="dashboard.html"><i class="fa-solid fa-table-columns"></i> Tableau de Bord</a>
+                <a href="analytics.html"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+                <a href="commands.html"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+                <a href="parametres.html"><i class="fa-solid fa-gear"></i> Paramètres</a>
+                <a href="rapports.html" class="active"><i class="fa-solid fa-file-lines"></i> Rapports</a>
+                <a href="notification.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+            </nav>
+
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <div>
+                        <h4>Administrateur</h4>
+                        <p>Gestionnaire</p>
+                    </div>
+                </div>
+                <label for="open-profile" class="btn-profile">Mon Profil</label>
+
+                <!-- 🔴 Déconnexion → retour page de connexion -->
+                <a href="../../index.html" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                </a>
+
+            </div>
+        </aside>
+
+        <!-- 🔝 TOPBAR -->
+        <header class="topbar">
+            <h1>Gestion de Stock - Produits Électroniques</h1>
+            <div class="user-top">
+                <!-- Icône notification -->
+                <a href="notification.html" class="notif-icon">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-badge">3</span> <!-- badge placé SUR la cloche -->
+                </a>
+
+                <!-- Profil -->
+                <i class="fa-solid fa-user"></i>
+                <span class="username">Administrateur</span>
+            </div>
+
+        </header>
+
+        <!-- 📊 CONTENU PRINCIPAL -->
+
+        <!-- ========= CONTENU ========= -->
+        <main class="main-content">
+
+            <!-- TITRE PAGE -->
+            <section class="page-header">
+                <h1><i class="fa-solid fa-chart-line"></i> Rapports & Analytics</h1>
+                <p>Génération et consultation des rapports détaillés</p>
+            </section>
+
+            <!-- =============================== -->
+            <!--     FILTRES DE RAPPORTS         -->
+            <!-- =============================== -->
+
+            <section class="report-filter">
+
+                <div class="filter-row">
+
+                    <!-- TYPE DE RAPPORT -->
+                    <div class="filter-group">
+                        <label>Type de rapport :</label>
+                        <select>
+                            <option selected>Rapport des ventes</option>
+                            <option>Rapport de stock</option>
+                            <option>Rapport financier</option>
+                            <option>Rapport clients</option>
+                        </select>
+                    </div>
+
+                    <!-- PERIODE -->
+                    <div class="filter-group">
+                        <label>Période :</label>
+                        <select>
+                            <option>Aujourd'hui</option>
+                            <option>Cette semaine</option>
+                            <option selected>Ce mois</option>
+                            <option>Ce trimestre</option>
+                            <option>Cette année</option>
+                        </select>
+                    </div>
+
+                    <!-- FORMAT -->
+                    <div class="filter-group">
+                        <label>Format :</label>
+                        <select>
+                            <option selected>PDF</option>
+                            <option>Excel</option>
+                            <option>CSV</option>
+                        </select>
+                    </div>
+
+                    <!-- Bouton -->
+                    <button class="btn-generate">
+                        <i class="fa-solid fa-file-arrow-down"></i> Générer le rapport
+                    </button>
+
+                </div>
+            </section>
+
+            <!-- ================================== -->
+            <!--      CARTES STATISTIQUES           -->
+            <!-- ================================== -->
+
+            <section class="report-stats">
+
+                <!-- Carte 1 : Ventes du mois -->
+                <div class="stat-card clean-card">
+
+                    <div class="stat-content">
+                        <div class="stat-left">
+                            <div class="stat-icon-box">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h3>Ventes du mois</h3>
+                                <p class="value-big">€45,678 <span class="value-growth">+12.5%</span></p>
+                                <p class="value-small">Chiffre d'affaires <span>vs mois dernier</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-details">Voir détails</button>
+
+                </div>
+
+                <!-- Carte 2 : État du stock -->
+                <div class="stat-card clean-card">
+
+                    <div class="stat-content">
+                        <div class="stat-left">
+                            <div class="stat-icon-box">
+                                <i class="fa-solid fa-boxes-stacked"></i>
+                            </div>
+                            <div>
+                                <h3>État du stock</h3>
+                                <p class="value-big">1,234 <span class="value-small-inline">Articles en stock</span></p>
+                                <p class="value-big">23 <span class="value-small-inline">Stock faible</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-details">Voir détails</button>
+
+                </div>
+
+                <!-- Carte 3 : Clients -->
+                <div class="stat-card clean-card">
+
+                    <div class="stat-content">
+                        <div class="stat-left">
+                            <div class="stat-icon-box">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <div>
+                                <h3>Clients</h3>
+                                <p class="value-big">856 <span class="value-small-inline">Nouveaux clients</span></p>
+                                <p class="value-big">2,345 <span class="value-small-inline">Total clients</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-details">Voir détails</button>
+
+                </div>
+
+            </section>
+
+            <!-- =============================== -->
+            <!--  HISTORIQUE DES RAPPORTS        -->
+            <!-- =============================== -->
+
+            <section class="history-section">
+
+                <h2 class="section-title">
+                    <i class="fa-solid fa-rotate-left"></i> Historique des Rapports
+                </h2>
+
+                <div class="history-table-container">
+
+                    <table class="history-table">
+                        <thead>
+                            <tr>
+                                <th>Nom du rapport</th>
+                                <th>Type</th>
+                                <th>Date de génération</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <!-- Ligne 1 -->
+                            <tr>
+                                <td>
+                                    <i class="fa-solid fa-file-pdf file-icon pdf"></i>
+                                    Rapport_ventes_janvier_2024.pdf
+                                </td>
+                                <td>Ventes</td>
+                                <td>15 Jan 2024</td>
+                                <td class="status done">Terminé</td>
+                                <td class="actions">
+                                    <i class="fa-solid fa-download"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Ligne 2 -->
+                            <tr>
+                                <td>
+                                    <i class="fa-solid fa-file-excel file-icon xls"></i>
+                                    Stock_inventaire_janvier_2024.xlsx
+                                </td>
+                                <td>Stock</td>
+                                <td>14 Jan 2024</td>
+                                <td class="status done">Terminé</td>
+                                <td class="actions">
+                                    <i class="fa-solid fa-download"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </td>
+                            </tr>
+
+                            <!-- Ligne 3 -->
+                            <tr>
+                                <td>
+                                    <i class="fa-solid fa-spinner file-icon loading"></i>
+                                    Rapport_financier_trimestre.xlsx
+                                </td>
+                                <td>Financier</td>
+                                <td>En cours...</td>
+                                <td class="status pending">En cours</td>
+                                <td class="actions">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </section>
+
+
+
+        </main>
+
+
+    </section>
+
+
+
+    <!-- ===== POPUP PROFIL ===== -->
+
+    <input type="checkbox" id="open-profile" class="profile-toggle">
+
+    <div class="profile-overlay">
+        <label for="open-profile" class="profile-bg"></label>
+
+        <div class="profile-box">
+            <header class="profile-header">
+                <h2><i class="fa-solid fa-user"></i> Mon Profil</h2>
+                <label for="open-profile" class="close-profile">&times;</label>
+            </header>
+
+            <div class="profile-content">
+                <div class="profile-photo">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <button class="btn-photo">Changer la photo</button>
+                </div>
+
+                <div class="profile-grid">
+                    <div>
+                        <label>Nom :</label>
+                        <input type="text" value="Administrateur">
+                    </div>
+
+                    <div>
+                        <label>Prénom :</label>
+                        <input type="text" value="Jean">
+                    </div>
+
+                    <div>
+                        <label>Email :</label>
+                        <input type="email" value="admin@dashboard.com">
+                    </div>
+
+                    <div>
+                        <label>Téléphone :</label>
+                        <input type="text" value="+33 6 12 34 56 78">
+                    </div>
+
+                    <div class="full">
+                        <label>Rôle :</label>
+                        <input type="text" value="Gestionnaire">
+                    </div>
+
+                    <div class="full">
+                        <label>Dernière connexion :</label>
+                        <input type="text" value="15 Janvier 2024 à 14:30">
+                    </div>
+                </div>
+            </div>
+
+            <footer class="profile-footer">
+                <label for="open-profile" class="btn-cancel">Fermer</label>
+                <button class="btn-save">Sauvegarder</button>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

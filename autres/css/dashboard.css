@@ -1,0 +1,770 @@
+/* ==========================================================
+   🎯 STOCKMANAGER – DASHBOARD (page dashboard.html)
+   -> Sidebar + Topbar + Cartes + Tableau
+   ========================================================== */
+
+/* ===========================
+   🌈 VARIABLES GLOBALES
+=========================== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --background-color: #f8fafc;
+  --sidebar-color: #1e293b;
+  --sidebar-hover: #334155;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ===========================
+   ⚙️ RESET
+=========================== */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* ===========================
+   🧱 LAYOUT GLOBAL
+=========================== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   📚 SIDEBAR
+=========================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background: var(--sidebar-color);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+/* Logo */
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logo i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Liens du menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.menu a {
+  color: var(--text-white);
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background 0.2s ease;
+}
+
+.menu a:hover {
+  background: var(--sidebar-hover);
+}
+
+.menu a.active {
+  background: var(--primary-color);
+}
+
+/* Pied de la sidebar */
+/* Pied de la sidebar */
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  background: #020617; /* très sombre comme sur la maquette */
+}
+
+/* bloc user */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+  background: #0f172a;
+}
+
+.user-info i {
+  font-size: 2rem;
+}
+
+.user-info h4 {
+  font-weight: 600;
+}
+
+.user-info p {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Boutons du bas */
+.btn-profile,
+.btn-logout {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-profile {
+  background: #0f172a;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.btn-profile:hover {
+  background: #111827;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: #ffffff;
+  border: 1px solid #b91c1c;
+}
+
+.btn-logout:hover {
+  background: #b91c1c;
+}
+
+
+/* ===========================
+   🔝 TOPBAR
+=========================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  right: 0;
+  height: 85px;
+  background: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: var(--shadow);
+  z-index: 99;
+}
+
+.topbar h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Hamburger (desktop : caché) */
+.hamburger {
+  display: none;
+}
+
+
+.user-top i {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+
+
+/* Zone à droite dans la topbar */
+.user-top {
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  color: var(--text-secondary);
+}
+
+/* avatar rond */
+.user-top .fa-user {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+}
+
+.username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Icône notif + badge */
+.notif-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* petit cercle bien rond sur la cloche */
+.notif-icon .notif-badge {
+  position: absolute;
+  top: -2px;               /* ← position exacte sur l’icône */
+  right: -4px;
+  width: 20px;             /* largeur fixe */
+  height: 20px;            /* hauteur fixe → cercle parfait */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform-origin: center;
+  padding: 0;              /* pas de padding pour éviter la déformation */
+  animation: notifPulse 1.4s ease-in-out infinite;
+}
+
+/* animation de “gonflement” */
+@keyframes notifPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.22);   /* le badge gonfle */
+  }
+  60% {
+    transform: scale(0.9);    /* redevient un peu plus petit */
+  }
+}
+
+/* Badge simple (si utilisé ailleurs) */
+.notif-badge {
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  background: var(--danger-color);
+  color: #fff;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  padding: 0.15rem 0.35rem;
+}
+
+/* ===========================
+   🧩 CONTENU PRINCIPAL
+=========================== */
+.main-content {
+  margin-left: 240px;                  /* = largeur sidebar */
+  padding: 110px 40px 40px;            /* top + côtés */
+  min-height: 100vh;
+  background: #f5f7fa;
+  flex: 1;
+}
+
+/* ===========================
+   📊 SECTION DASHBOARD
+=========================== */
+.dashboard-section {
+  padding: 1rem 2rem;
+}
+
+.dashboard-section h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.dashboard-section p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+/* ===========================
+   💡 CARTES DE STATISTIQUES
+=========================== */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.stats-card {
+  background: var(--text-white);
+  border-radius: 0.75rem;
+  padding: 2rem;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow);
+}
+
+.stats-card i {
+  font-size: 1.8rem;
+  color: var(--text-white);
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.stats-card h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.stats-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Couleurs des icônes dans les cartes */
+.stats-card.blue i { background: var(--primary-color); }
+.stats-card.orange i { background: var(--warning-color); }
+.stats-card.green i { background: var(--success-color); }
+.stats-card.gray i { background: var(--secondary-color); }
+
+/* ===========================
+   📋 TABLEAU DE GESTION DES STOCKS
+=========================== */
+.table-wrapper {
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* En-tête au-dessus du tableau */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Actions (recherche + boutons) */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-input {
+  padding: 0.9rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  min-width: 260px;
+}
+
+/* Boutons génériques */
+.btn-primary,
+.btn-secondary {
+  padding: 0.8rem 1.25rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-secondary {
+  background: #fff;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+/* Tableau */
+.table-container {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: calc(100vh - 320px);
+  min-height: 500px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  min-width: 900px;
+  line-height: 1.8;
+}
+
+thead {
+  background: #f8fafc;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+th,
+td {
+  padding: 1.6rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: #f9fafb;
+}
+
+td small {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+/* Badges catégories */
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.badge.blue { background: #dbeafe; color: #1d4ed8; }
+.badge.green { background: #dcfce7; color: #166534; }
+.badge.yellow { background: #fef9c3; color: #92400e; }
+.badge.orange { background: #ffedd5; color: #9a3412; }
+.badge.red { background: #fee2e2; color: #991b1b; }
+.badge.purple { background: #ede9fe; color: #5b21b6; }
+.badge.pink { background: #fce7f3; color: #9d174d; }
+
+/* Statuts */
+.status {
+  padding: 0.4rem 0.9rem;
+  border-radius: 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.status.active { background: #dcfce7; color: #166534; }
+.status.warning { background: #fef3c7; color: #92400e; }
+
+/* Icônes actions */
+.edit {
+  color: var(--primary-color);
+  cursor: pointer;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+}
+.delete {
+  color: var(--danger-color);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* ===========================
+   📱 RESPONSIVE 768px
+=========================== */
+@media (max-width: 768px) {
+  /* Hamburger visible */
+  .hamburger {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  /* Layout */
+  .dashboard-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding-top: 85px;
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .dashboard-section {
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Sidebar mobile */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-color);
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .menu-toggle:checked ~ .dashboard-container .sidebar {
+    left: 0;
+  }
+
+  /* Overlay */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+
+  .menu-toggle:checked ~ .dashboard-container .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Topbar mobile */
+  .topbar {
+    left: 0 !important;
+    padding: 1rem;
+    height: 65px;
+    gap: 1rem;
+  }
+
+  .topbar h1 {
+    font-size: 1rem;
+  }
+
+  /* Cartes en colonne */
+  .stats-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  /* Tableau full-width */
+  .table-wrapper {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: auto;
+    max-height: calc(100vh - 260px);
+  }
+
+  table {
+    min-width: 900px;
+    font-size: 0.85rem;
+  }
+}
+
+
+
+/* =========================================================
+   POPUP PROFIL (commun aux pages qui ont le modal profil)
+========================================================= */
+.profile-toggle {
+  display: none;
+}
+
+.profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.profile-toggle:checked ~ .profile-overlay {
+  display: flex;
+}
+
+.profile-bg {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.profile-box {
+  position: relative;
+  width: 650px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-header h2 i {
+  color: #2563eb;
+  margin-right: 8px;
+}
+
+.close-profile {
+  font-size: 26px;
+  cursor: pointer;
+  color: #666;
+}
+
+.profile-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.profile-photo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo i {
+  font-size: 80px;
+  color: #3b82f6;
+}
+
+.btn-photo {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.profile-grid .full {
+  grid-column: span 2;
+}
+
+.profile-grid label {
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-grid input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.profile-footer {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}

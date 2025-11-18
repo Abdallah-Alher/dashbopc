@@ -1,0 +1,737 @@
+/* ==========================================================
+   RAPPORTS – StockManager Dashboard
+   CSS dédié uniquement à rapports.html
+========================================================== */
+
+/* ===========================
+   🌈 VARIABLES & RESET
+=========================== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --background-color: #f8fafc;
+  --sidebar-color: #1e293b;
+  --sidebar-hover: #334155;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-primary);
+}
+
+/* ===========================
+   🧱 LAYOUT GLOBAL
+=========================== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   📚 SIDEBAR
+=========================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background: var(--sidebar-color);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+/* Logo */
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logo i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Liens menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.menu a {
+  color: var(--text-white);
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background 0.2s ease;
+}
+
+.menu a:hover {
+  background: var(--sidebar-hover);
+}
+
+.menu a.active {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+/* Pied de sidebar */
+/* Pied de la sidebar */
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  background: #020617; /* très sombre comme sur la maquette */
+}
+
+/* bloc user */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+  background: #0f172a;
+}
+
+.user-info i {
+  font-size: 2rem;
+}
+
+.user-info h4 {
+  font-weight: 600;
+}
+
+.user-info p {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Boutons du bas */
+.btn-profile,
+.btn-logout {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-profile {
+  background: #0f172a;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.btn-profile:hover {
+  background: #111827;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: #ffffff;
+  border: 1px solid #b91c1c;
+}
+
+.btn-logout:hover {
+  background: #b91c1c;
+}
+
+
+/* ===========================
+   🔝 TOPBAR
+=========================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  right: 0;
+  height: 85px;
+  background: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: var(--shadow);
+  z-index: 99;
+}
+
+.topbar h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.user-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.user-top i {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+/* Icône cloche */
+/* Zone à droite dans la topbar */
+.user-top {
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  color: var(--text-secondary);
+}
+
+/* avatar rond */
+.user-top .fa-user {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+}
+
+.username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Icône notif + badge */
+.notif-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* petit cercle bien rond sur la cloche */
+.notif-icon .notif-badge {
+  position: absolute;
+  top: -2px;               /* ← position exacte sur l’icône */
+  right: -4px;
+  width: 20px;             /* largeur fixe */
+  height: 20px;            /* hauteur fixe → cercle parfait */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform-origin: center;
+  padding: 0;              /* pas de padding pour éviter la déformation */
+  animation: notifPulse 1.4s ease-in-out infinite;
+}
+
+/* animation de “gonflement” */
+@keyframes notifPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.22);   /* le badge gonfle */
+  }
+  60% {
+    transform: scale(0.9);    /* redevient un peu plus petit */
+  }
+}
+
+/* ===========================
+   🧩 CONTENU PRINCIPAL
+=========================== */
+.main-content {
+  margin-left: 260px;
+  padding: 110px 40px 40px;
+  min-height: 100vh;
+  background: #f5f7fa;
+  flex: 1;
+}
+
+/* ===========================
+   🏷️ EN-TÊTE PAGE
+=========================== */
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #111827;
+}
+
+.page-header h1 i {
+  color: #2563eb;
+}
+
+.page-header p {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===========================
+   🎛️ FILTRES RAPPORTS
+=========================== */
+.report-filter {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  margin-bottom: 30px;
+}
+
+.filter-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.filter-group label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.filter-group select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn-generate {
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.2s;
+}
+
+.btn-generate:hover {
+  background: #1d4ed8;
+}
+
+/* ===========================
+   📊 CARTES STATISTIQUES
+=========================== */
+.report-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 25px;
+}
+
+/* Carte clean */
+.clean-card {
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  padding: 26px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 230px;
+  transition: 0.25s ease;
+}
+
+.clean-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-left {
+  display: flex;
+  gap: 18px;
+}
+
+/* Icône */
+.stat-icon-box {
+  width: 70px;
+  height: 70px;
+  background: #2563eb;
+  color: white;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+}
+
+/* Titres / valeurs */
+.stat-left h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.value-big {
+  font-size: 28px;
+  font-weight: 800;
+  color: #2563eb;
+}
+
+.value-small,
+.value-small-inline {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.value-growth {
+  font-size: 20px;
+  color: #16a34a;
+  margin-left: 10px;
+  font-weight: 600;
+}
+
+/* Bouton "Voir détails" */
+.btn-details {
+  align-self: center;
+  margin-top: 18px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn-details:hover {
+  background: #f1f5f9;
+}
+
+/* ===========================
+   🕒 HISTORIQUE DES RAPPORTS
+=========================== */
+.history-section {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  margin-top: 28px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  min-height: 420px;
+  padding-bottom: 40px;
+}
+
+.history-section .section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.history-table-container {
+  margin-top: 15px;
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table thead {
+  background: #f8fafc;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.history-table th {
+  text-align: left;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.history-table td {
+  padding: 14px 18px;
+  font-size: 15px;
+  color: #374151;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.history-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.file-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* couleurs icônes fichier */
+.file-icon.pdf {
+  color: #c81e1e;
+}
+.file-icon.xls {
+  color: #15803d;
+}
+.file-icon.loading {
+  color: #2563eb;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Statuts */
+.status.done {
+  color: #059669;
+  font-weight: 600;
+}
+
+.status.pending {
+  color: #d97706;
+  font-weight: 600;
+}
+
+/* Actions */
+.actions i {
+  margin-right: 14px;
+  cursor: pointer;
+  color: #4b5563;
+  transition: 0.2s;
+}
+
+.actions i:hover {
+  color: #2563eb;
+}
+
+/* ===========================
+   👤 POPUP PROFIL
+=========================== */
+.profile-toggle {
+  display: none;
+}
+
+.profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.profile-toggle:checked ~ .profile-overlay {
+  display: flex;
+}
+
+.profile-bg {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.profile-box {
+  position: relative;
+  width: 650px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-header h2 i {
+  color: #2563eb;
+  margin-right: 8px;
+}
+
+.close-profile {
+  font-size: 26px;
+  cursor: pointer;
+  color: #666;
+}
+
+.profile-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.profile-photo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo i {
+  font-size: 80px;
+  color: #3b82f6;
+}
+
+.btn-photo {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.profile-grid .full {
+  grid-column: span 2;
+}
+
+.profile-grid label {
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-grid input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.profile-footer {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===========================
+   📱 RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .dashboard-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .topbar {
+    left: 0;
+    height: 65px;
+    padding: 0 1rem;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 80px 1rem 24px;
+  }
+
+  .report-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

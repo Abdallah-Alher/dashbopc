@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notifications | StockManager Dashboard</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/notification.css" />
+</head>
+
+<body>
+    <section class="dashboard-container">
+        <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Dashboard</h2>
+            </div>
+
+            <nav class="menu">
+                <a href="dashboard.html"><i class="fa-solid fa-table-columns"></i> Tableau de Bord</a>
+                <a href="analytics.html"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+                <a href="commands.html"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+                <a href="parametres.html"><i class="fa-solid fa-gear"></i> Paramètres</a>
+                <a href="rapports.html"><i class="fa-solid fa-file-lines"></i> Rapports</a>
+                <a href="notification.html" class="active"><i class="fa-solid fa-bell"></i> Notifications</a>
+            </nav>
+
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <div>
+                        <h4>Administrateur</h4>
+                        <p>Gestionnaire</p>
+                    </div>
+                </div>
+                <label for="open-profile" class="btn-profile">Mon Profil</label>
+
+                <!-- 🔴 Déconnexion → retour page de connexion -->
+                <a href="../../index.html" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                </a>
+
+            </div>
+        </aside>
+
+        <!-- 🔝 TOPBAR -->
+        <header class="topbar">
+            <h1>Gestion de Stock - Produits Électroniques</h1>
+            <div class="user-top">
+                <!-- Icône notification -->
+                <a href="notification.html" class="notif-icon">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-badge">3</span> <!-- badge placé SUR la cloche -->
+                </a>
+
+                <!-- Profil -->
+                <i class="fa-solid fa-user"></i>
+                <span class="username">Administrateur</span>
+            </div>
+
+        </header>
+
+
+
+
+
+        <main class="main-content">
+
+            <!-- TITRE -->
+            <section class="page-header">
+                <h1><i class="fa-solid fa-bell"></i> Notifications & Alertes</h1>
+                <p>Centre de notifications et gestion des alertes système</p>
+            </section>
+
+            <!-- =============================== -->
+            <!--   CARTES RÉSUMÉ NOTIFICATIONS  -->
+            <!-- =============================== -->
+
+            <section class="notif-stats">
+
+                <!-- Non lues -->
+                <div class="notif-card">
+                    <div class="notif-left blue-bg">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div class="notif-right">
+                        <h3>12</h3>
+                        <p>Non lues</p>
+                    </div>
+                </div>
+
+                <!-- Urgentes -->
+                <div class="notif-card">
+                    <div class="notif-left red-bg">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div class="notif-right">
+                        <h3>3</h3>
+                        <p>Urgentes</p>
+                    </div>
+                </div>
+
+                <!-- Aujourd’hui -->
+                <div class="notif-card">
+                    <div class="notif-left green-bg">
+                        <i class="fa-solid fa-calendar-day"></i>
+                    </div>
+
+                    <div class="notif-right">
+                        <h3>23</h3>
+                        <p>Aujourd’hui</p>
+                    </div>
+                </div>
+
+                <!-- Total -->
+                <div class="notif-card">
+                    <div class="notif-left grey-bg">
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+
+                    <div class="notif-right">
+                        <h3>156</h3>
+                        <p>Total</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- =============================== -->
+            <!--         FILTRAGE                -->
+            <!-- =============================== -->
+
+            <section class="notif-filters">
+
+                <div class="filter-group">
+                    <label>Type :</label>
+                    <select>
+                        <option>Toutes</option>
+                        <option>Stock</option>
+                        <option>Commandes</option>
+                        <option>Système</option>
+                        <option>Sécurité</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Priorité :</label>
+                    <select>
+                        <option>Toutes</option>
+                        <option>Urgent</option>
+                        <option>Haute</option>
+                        <option>Moyenne</option>
+                        <option>Basse</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Statut :</label>
+                    <select>
+                        <option>Toutes</option>
+                        <option>Non lues</option>
+                        <option>Lues</option>
+                    </select>
+                </div>
+
+                <button class="btn-filter"><i class="fa-solid fa-filter"></i> Filtrer</button>
+
+            </section>
+
+
+            <section class="notifications-list">
+
+                <!-- Notification : Alerte Critique -->
+                <div class="notif-item danger">
+                    <div class="notif-left-icon">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div class="notif-content">
+                        <h3>Stock critique détecté</h3>
+                        <p>
+                            Le produit <strong>"AirPods Pro 2"</strong> a atteint le seuil critique de stock
+                            (3 unités restantes). Veuillez passer commande rapidement.
+                        </p>
+
+                        <div class="notif-actions">
+                            <button class="btn-primary">Passer commande</button>
+                            <button class="btn-light">Marquer comme lu</button>
+                        </div>
+                    </div>
+
+                    <span class="notif-time">Il y a 5 minutes</span>
+                </div>
+
+                <!-- Notification : Nouvelle commande -->
+                <div class="notif-item info">
+                    <div class="notif-left-icon">
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+
+                    <div class="notif-content">
+                        <h3>Nouvelle commande reçue</h3>
+                        <p>
+                            Commande <strong>#CMD-2024-004</strong> reçue de Marie Dubois pour un
+                            MacBook Pro 16" (€2,899.00)
+                        </p>
+
+                        <div class="notif-actions">
+                            <button class="btn-primary">Voir la commande</button>
+                            <button class="btn-light">Marquer comme lu</button>
+                        </div>
+                    </div>
+
+                    <span class="notif-time">Il y a 15 minutes</span>
+                </div>
+
+                <!-- Notification : Commande expédiée -->
+                <div class="notif-item success">
+                    <div class="notif-left-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+
+                    <div class="notif-content">
+                        <h3>Commande expédiée</h3>
+                        <p>
+                            La commande <strong>#CMD-2024-003</strong> a été expédiée avec succès.
+                            Numéro de suivi : <strong>FR123456789</strong>
+                        </p>
+
+                        <div class="notif-actions">
+                            <button class="btn-primary">Suivre l'envoi</button>
+                        </div>
+                    </div>
+
+                    <span class="notif-time">Il y a 1 heure</span>
+                </div>
+
+            </section>
+
+
+            <!-- NOTIFICATION : Sauvegarde automatique -->
+            <div class="notif-item neutral">
+                <div class="notif-left-icon">
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                </div>
+
+                <div class="notif-content">
+                    <h3>Sauvegarde automatique terminée</h3>
+                    <p>
+                        Sauvegarde quotidienne des données terminée avec succès.
+                        2.3 GB de données sauvegardées.
+                    </p>
+
+                    <div class="notif-actions">
+                        <button class="btn-light">Voir les détails</button>
+                    </div>
+                </div>
+
+                <span class="notif-time">Il y a 2 heures</span>
+            </div>
+
+
+            <!-- NOTIFICATION : Connexion depuis un nouvel appareil -->
+            <div class="notif-item warning">
+                <div class="notif-left-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+
+                <div class="notif-content">
+                    <h3>Connexion depuis un nouvel appareil</h3>
+                    <p>
+                        Connexion détectée depuis un nouvel appareil (iPhone, Paris, France).
+                        Si ce n'est pas vous, changez votre mot de passe.
+                    </p>
+
+                    <div class="notif-actions">
+                        <button class="btn-light">Sécuriser le compte</button>
+                    </div>
+                </div>
+
+                <span class="notif-time">Il y a 3 heures</span>
+            </div>
+
+
+            <!-- BARRE DE SÉLECTION + ACTIONS -->
+            <div class="notif-footer-actions">
+                <label class="select-all">
+                    <input type="checkbox">
+                    Sélectionner tout
+                </label>
+
+                <div class="footer-buttons">
+                    <button class="btn-light"><i class="fa-solid fa-check"></i> Marquer comme lu</button>
+                    <button class="btn-danger"><i class="fa-solid fa-trash"></i> Supprimer</button>
+                </div>
+            </div>
+
+
+
+        </main>
+
+    </section>
+
+
+    <!-- ===== POPUP PROFIL ===== -->
+
+    <input type="checkbox" id="open-profile" class="profile-toggle">
+
+    <div class="profile-overlay">
+        <label for="open-profile" class="profile-bg"></label>
+
+        <div class="profile-box">
+            <header class="profile-header">
+                <h2><i class="fa-solid fa-user"></i> Mon Profil</h2>
+                <label for="open-profile" class="close-profile">&times;</label>
+            </header>
+
+            <div class="profile-content">
+                <div class="profile-photo">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <button class="btn-photo">Changer la photo</button>
+                </div>
+
+                <div class="profile-grid">
+                    <div>
+                        <label>Nom :</label>
+                        <input type="text" value="Administrateur">
+                    </div>
+
+                    <div>
+                        <label>Prénom :</label>
+                        <input type="text" value="Jean">
+                    </div>
+
+                    <div>
+                        <label>Email :</label>
+                        <input type="email" value="admin@dashboard.com">
+                    </div>
+
+                    <div>
+                        <label>Téléphone :</label>
+                        <input type="text" value="+33 6 12 34 56 78">
+                    </div>
+
+                    <div class="full">
+                        <label>Rôle :</label>
+                        <input type="text" value="Gestionnaire">
+                    </div>
+
+                    <div class="full">
+                        <label>Dernière connexion :</label>
+                        <input type="text" value="15 Janvier 2024 à 14:30">
+                    </div>
+                </div>
+            </div>
+
+            <footer class="profile-footer">
+                <label for="open-profile" class="btn-cancel">Fermer</label>
+                <button class="btn-save">Sauvegarder</button>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

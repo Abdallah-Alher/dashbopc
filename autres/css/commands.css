@@ -1,0 +1,1106 @@
+/* ==========================================================
+   🛒 STOCKMANAGER – COMMANDES (commands.html)
+   Sidebar + Topbar + Cartes stats + Filtres + Cartes commandes
+   + Popups Voir détails / Modifier + Profil
+   ========================================================== */
+
+/* ===========================
+   🌈 VARIABLES GLOBALES
+=========================== */
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --background-color: #f8fafc;
+  --sidebar-color: #1e293b;
+  --sidebar-hover: #334155;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* ===========================
+   ⚙️ RESET
+=========================== */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* checkbox menu mobile */
+.menu-toggle {
+  display: none;
+}
+
+/* overlay du menu (caché par défaut sur desktop) */
+.overlay {
+  display: none;
+}
+
+/* ===========================
+   🧱 LAYOUT GLOBAL
+=========================== */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ===========================
+   📚 SIDEBAR
+=========================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 240px;
+  background: var(--sidebar-color);
+  color: var(--text-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  z-index: 100;
+}
+
+/* Logo */
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logo i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.menu a {
+  color: var(--text-white);
+  padding: 0.9rem 1.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: background 0.2s ease;
+}
+
+.menu a:hover {
+  background: var(--sidebar-hover);
+}
+
+.menu a.active {
+  background: var(--primary-color);
+}
+
+/* Pied de la sidebar */
+/* Pied de la sidebar */
+.sidebar-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  background: #020617; /* très sombre comme sur la maquette */
+}
+
+/* bloc user */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 0.75rem;
+  background: #0f172a;
+}
+
+.user-info i {
+  font-size: 2rem;
+}
+
+.user-info h4 {
+  font-weight: 600;
+}
+
+.user-info p {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* Boutons du bas */
+.btn-profile,
+.btn-logout {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-profile {
+  background: #0f172a;
+  color: #e5e7eb;
+  margin-bottom: 0.75rem;
+}
+
+.btn-profile:hover {
+  background: #111827;
+}
+
+.btn-logout {
+  background: #ef4444;
+  color: #ffffff;
+  border: 1px solid #b91c1c;
+}
+
+.btn-logout:hover {
+  background: #b91c1c;
+}
+
+
+/* ===========================
+   🔝 TOPBAR
+=========================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  right: 0;
+  height: 85px;
+  background: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: var(--shadow);
+  z-index: 99;
+}
+
+.topbar h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* hamburger caché sur desktop */
+.hamburger {
+  display: none;
+}
+
+/* User à droite */
+
+/* Zone à droite dans la topbar */
+.user-top {
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  color: var(--text-secondary);
+}
+
+/* avatar rond */
+.user-top .fa-user {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #4b5563;
+}
+
+.username {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* Icône notif + badge */
+.notif-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #1e293b;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+/* petit cercle bien rond sur la cloche */
+.notif-icon .notif-badge {
+  position: absolute;
+  top: -2px;               /* ← position exacte sur l’icône */
+  right: -4px;
+  width: 20px;             /* largeur fixe */
+  height: 20px;            /* hauteur fixe → cercle parfait */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 2px #ffffff;
+  transform-origin: center;
+  padding: 0;              /* pas de padding pour éviter la déformation */
+  animation: notifPulse 1.4s ease-in-out infinite;
+}
+
+/* animation de “gonflement” */
+@keyframes notifPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.22);   /* le badge gonfle */
+  }
+  60% {
+    transform: scale(0.9);    /* redevient un peu plus petit */
+  }
+}
+/* ===========================
+   🧩 CONTENU PRINCIPAL
+=========================== */
+.main-content {
+  margin-left: 260px;
+  padding: 110px 40px 40px;
+  min-height: 100vh;
+  background: #f5f7fa;
+  flex: 1;
+}
+
+/* ===================================================== */
+/*   EN-TÊTE DE PAGE : Titre + sous-titre                */
+/* ===================================================== */
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #111827;
+}
+
+.page-header h1 i {
+  color: #2563eb;
+}
+
+.page-header p {
+  margin-top: 5px;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+/* ===================================================== */
+/*   4 CARTES DU HAUT (statuts commandes)               */
+/* ===================================================== */
+
+.orders-stats-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #fff;
+  border-radius: 0.9rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
+}
+
+.icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* couleurs icônes */
+.yellow { background: #fbbf24; }
+.blue   { background: #2563eb; }
+.purple { background: #8b5cf6; }
+.green  { background: #10b981; }
+
+.stat-card h3 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+
+.stat-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* ===================================================== */
+/*   FILTRES COMMANDES                                   */
+/* ===================================================== */
+
+.orders-filter-card {
+  background: #fff;
+  border-radius: 0.9rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.filter-row {
+  display: grid;
+  grid-template-columns: 220px 220px 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+.filter-col label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.filter-col select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.6rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.filter-col select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Recherche */
+.search-box {
+  border: 1px solid #d1d5db;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  display: flex;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.search-box button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0 1rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.search-box button:hover {
+  background: #1d4ed8;
+}
+
+/* ============================================================= */
+/*                LISTE DES COMMANDES : CARTES                   */
+/* ============================================================= */
+
+.orders-list {
+  margin-top: 25px;
+}
+
+/* Carte commande */
+.order-card {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
+  padding: 26px 26px 22px;
+  margin-bottom: 30px;
+  transition: 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+/* Header carte */
+.order-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.order-card__info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.order-card__info p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.order-card__info span {
+  font-weight: 500;
+  color: #111827;
+}
+
+/* Statut + Montant */
+.order-card__status {
+  text-align: right;
+}
+
+.order-card__status .status-text {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.order-card__status .status-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* Ligne produit */
+.order-card__item {
+  margin-top: 24px;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 1fr 60px 120px;
+  align-items: center;
+  gap: 24px;
+}
+
+.item-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.item-main i {
+  font-size: 26px;
+  color: #475569;
+}
+
+.item-main h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.item-main p {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.item-qty {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.item-price {
+  text-align: right;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+/* Boutons actions */
+.order-card__actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 14px;
+}
+
+.btn-order,
+.btn-edit {
+  border-radius: 10px;
+  padding: 9px 22px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+}
+
+/* Bouton voir (bleu) */
+.btn-order.primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+/* Bouton gris */
+.btn-order.secondary {
+  background: #f1f5f9;
+  color: #111827;
+  border: 1px solid #e2e8f0;
+}
+
+/* Bouton Modifier */
+.btn-edit {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* labels = vrais boutons */
+label.btn-order,
+label.btn-edit {
+  cursor: pointer;
+}
+
+/* ============================================================= */
+/*                      POPUP VOIR DÉTAILS                       */
+/* ============================================================= */
+
+.order-modal-toggle {
+  display: none;
+}
+
+/* Fond flou */
+.order-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 999;
+  transition: opacity 0.25s ease-in-out;
+}
+
+/* Afficher SEULEMENT le bon popup */
+#cmd-details-1:checked ~ .order-modal-1,
+#cmd-details-2:checked ~ .order-modal-2,
+#cmd-details-3:checked ~ .order-modal-3 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Zone cliquable */
+.order-modal-bg {
+  position: absolute;
+  inset: 0;
+}
+
+/* Box popup */
+.order-modal {
+  position: relative;
+  width: 720px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  animation: popupShow 0.25s ease;
+}
+
+@keyframes popupShow {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* Header */
+.order-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.order-modal__header h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.order-modal__close {
+  font-size: 28px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Contenu interne */
+.order-modal__content {
+  margin-top: 12px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+/* Sections */
+.order-modal__section {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 2px solid #2563eb;
+}
+
+.order-modal__section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.order-modal__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 30px;
+}
+
+.label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.value {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Ligne article */
+.ordered-item {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 40px 1fr 40px 80px 90px;
+  align-items: center;
+  gap: 10px;
+}
+
+.ordered-item i {
+  font-size: 24px;
+  color: #475569;
+}
+
+.ordered-name {
+  font-weight: 600;
+}
+
+.ordered-price,
+.ordered-total {
+  font-weight: 600;
+}
+
+/* Pied popup */
+.order-modal__footer {
+  border-top: 1px solid #e5e7eb;
+  margin-top: 14px;
+  padding-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ============================================================= */
+/*                        POPUP MODIFIER                         */
+/* ============================================================= */
+
+.modal-toggle {
+  display: none;
+}
+
+/* Overlay */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.48);
+  opacity: 0;
+  pointer-events: none;
+  padding: 20px;
+  z-index: 3000;
+  transition: 0.25s ease;
+}
+
+/* Afficher uniquement le bon */
+#modal-edit-1:checked ~ .modal-1,
+#modal-edit-2:checked ~ .modal-2 {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-bg {
+  position: absolute;
+  inset: 0;
+}
+
+/* Box */
+.modal-box {
+  width: 650px;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  animation: popupShow 0.25s ease;
+}
+
+/* Header */
+.modal-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Contenu */
+.scroll-area {
+  padding: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-section {
+  margin-bottom: 25px;
+}
+
+.modal-section h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+  border-bottom: 2px solid #d8e3f3;
+  padding-bottom: 6px;
+}
+
+.modal-section label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.modal-section select,
+.modal-section textarea,
+.modal-section input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* Footer */
+.modal-footer {
+  padding: 18px;
+  background: #fafafa;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn.cancel {
+  background: #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   POPUP PROFIL (même principe que les autres pages)
+========================================================= */
+
+.profile-toggle {
+  display: none;
+}
+
+.profile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+}
+
+.profile-toggle:checked ~ .profile-overlay {
+  display: flex;
+}
+
+.profile-bg {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.profile-box {
+  position: relative;
+  width: 650px;
+  max-height: 90vh;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.profile-header h2 i {
+  color: #2563eb;
+  margin-right: 8px;
+}
+
+.close-profile {
+  font-size: 26px;
+  cursor: pointer;
+  color: #666;
+}
+
+.profile-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.profile-photo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-photo i {
+  font-size: 80px;
+  color: #3b82f6;
+}
+
+.btn-photo {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  cursor: pointer;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.profile-grid .full {
+  grid-column: span 2;
+}
+
+.profile-grid label {
+  font-size: 14px;
+  color: #666;
+}
+
+.profile-grid input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.profile-footer {
+  padding: 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.btn-cancel {
+  padding: 10px 20px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-save {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================================================
+   📱 RESPONSIVE 768px – Sidebar mobile + overlay + hamburger
+========================================================= */
+
+@media (max-width: 768px) {
+  /* hamburger visible */
+  .hamburger {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  /* layout global */
+  .dashboard-container {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding-top: 85px;
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Sidebar coulissante */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-color);
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  .menu-toggle:checked ~ .dashboard-container .sidebar {
+    left: 0;
+  }
+
+  /* overlay plein écran */
+  .overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+
+  .menu-toggle:checked ~ .dashboard-container .overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* topbar alignée */
+  .topbar {
+    left: 0 !important;
+    padding: 1rem;
+    height: 65px;
+    gap: 1rem;
+  }
+
+  .topbar h1 {
+    font-size: 1rem;
+  }
+
+  /* cartes stats : 2 colonnes */
+  .orders-stats-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* filtres en colonne */
+  .filter-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* plus petit écran */
+@media (max-width: 480px) {
+  .orders-stats-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .order-card__item {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}

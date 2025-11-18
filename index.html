@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion | StockManager Dashboard</title>
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="autres/css/style.css" />
+  </head>
+  <body>
+    <main class="login-page">
+      <section class="login-container">
+        <!-- Partie gauche : Formulaire -->
+        <article class="login-form">
+          <h1>Connexion à StockManager<br />Dashboard</h1>
+
+          <form action="autres/pages/dashboard.html" method="get">
+            <div class="form-group">
+              <label for="username">Nom d'utilisateur ou email</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Nom d'utilisateur ou email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Mot de passe"
+                required
+              />
+            </div>
+
+            <div class="form-options">
+              <label class="remember">
+                <input type="checkbox" />
+                Se souvenir de moi
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary">Se connecter</button>
+
+            <div class="links">
+              <p>
+                Mot de passe oublié ?
+                <a href="#" class="link-reset">Réinitialiser</a>
+              </p>
+              <p>
+                Vous n'avez pas de compte ?
+                <a href="register.html" class="link-register">Inscrivez-vous</a>
+              </p>
+            </div>
+          </form>
+        </article>
+
+        <!-- Partie droite : Présentation -->
+        <aside class="login-info">
+          <div class="logo-circle">SM</div>
+          <h2>Bienvenue dans <br />StockManager</h2>
+          <p>
+            Gérez vos appareils électroniques, vos entrées et vos sorties de
+            stock facilement avec une interface claire et rapide.
+          </p>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

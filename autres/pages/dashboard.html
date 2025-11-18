@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | StockManager</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+
+<body>
+
+  <!-- Checkbox pour contrôler le menu mobile -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+  <div class="dashboard-container">
+
+    <!-- Overlay (fermeture du menu mobile) -->
+    <label for="menu-toggle" class="overlay"></label>
+
+    <!-- ====================== SIDEBAR ====================== -->
+    <aside class="sidebar">
+      <div class="logo">
+        <i class="fa-solid fa-chart-line"></i>
+        <h2>Dashboard</h2>
+      </div>
+
+      <nav class="menu">
+        <a href="dashboard.html" class="active"><i class="fa-solid fa-table-columns"></i> Tableau de Bord</a>
+        <a href="analytics.html"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+        <a href="commands.html"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+        <a href="parametres.html"><i class="fa-solid fa-gear"></i> Paramètres</a>
+        <a href="rapports.html"><i class="fa-solid fa-file-lines"></i> Rapports</a>
+        <a href="notification.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <i class="fa-solid fa-user-circle"></i>
+          <div>
+            <h4>Administrateur</h4>
+            <p>Gestionnaire</p>
+          </div>
+        </div>
+
+        <label for="open-profile" class="btn-profile">Mon Profil</label>
+
+        <!-- 🔴 Déconnexion → retour page de connexion -->
+        <a href="../../index.html" class="btn-logout">
+          <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+        </a>
+
+      </div>
+
+    </aside>
+
+    <!-- ====================== CONTENU PRINCIPAL ====================== -->
+    <main class="main-content">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <label for="menu-toggle" class="hamburger">
+          <i class="fa-solid fa-bars"></i>
+        </label>
+
+        <h1>Gestion de Stock - Produits Électroniques</h1>
+
+        <div class="user-top">
+          <!-- Icône notification -->
+          <a href="notification.html" class="notif-icon">
+            <i class="fa-solid fa-bell"></i>
+            <span class="notif-badge">3</span> <!-- badge placé SUR la cloche -->
+          </a>
+
+          <!-- Profil -->
+          <i class="fa-solid fa-user"></i>
+          <span class="username">Administrateur</span>
+        </div>
+
+
+
+      </header>
+
+      <!-- ====================== SECTION DASHBOARD ====================== -->
+      <section class="dashboard-section">
+        <h2>Tableau de Bord Principal</h2>
+        <p>Gestion des stocks de produits électroniques</p>
+
+        <!-- Cartes statistiques -->
+        <div class="stats-container">
+          <div class="stats-card blue">
+            <i class="fa-solid fa-box"></i>
+            <div>
+              <h3>1,234</h3>
+              <p>Produits en Stock</p>
+            </div>
+          </div>
+
+          <div class="stats-card orange">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+              <h3>23</h3>
+              <p>Stock Faible</p>
+            </div>
+          </div>
+
+          <div class="stats-card green">
+            <i class="fa-solid fa-euro-sign"></i>
+            <div>
+              <h3>€45,678</h3>
+              <p>Valeur Totale</p>
+            </div>
+          </div>
+
+          <div class="stats-card gray">
+            <i class="fa-solid fa-truck"></i>
+            <div>
+              <h3>12</h3>
+              <p>Commandes en Attente</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Tableau -->
+        <div class="table-wrapper">
+          <div class="section-header">
+            <h2>Gestion des Stocks</h2>
+
+            <div class="actions">
+              <input type="text" placeholder="Rechercher un produit..." class="form-input" />
+
+              <button class="btn-primary">
+                <i class="fa-solid fa-plus"></i> Ajouter Produit
+              </button>
+
+              <button class="btn-secondary">
+                <i class="fa-solid fa-download"></i> Exporter
+              </button>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>PRODUIT</th>
+                  <th>CATÉGORIE</th>
+                  <th>STOCK</th>
+                  <th>PRIX</th>
+                  <th>STATUT</th>
+                  <th>ACTIONS</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>#001</td>
+                  <td><i class="fa-solid fa-laptop"></i> MacBook Pro 16" <small>Apple - M3 Pro</small></td>
+                  <td><span class="badge blue">LAPTOP</span></td>
+                  <td><span class="badge green">15</span></td>
+                  <td>€2,899</td>
+                  <td><span class="status active">Actif</span></td>
+                  <td><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash delete"></i></td>
+                </tr>
+
+                <tr>
+                  <td>#002</td>
+                  <td><i class="fa-solid fa-mobile-screen-button"></i> iPhone 15 Pro <small>Apple - 128GB</small></td>
+                  <td><span class="badge green">SMARTPHONE</span></td>
+                  <td><span class="badge yellow">8</span></td>
+                  <td>€1,199</td>
+                  <td><span class="status active">Actif</span></td>
+                  <td><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash delete"></i></td>
+                </tr>
+
+                <tr>
+                  <td>#003</td>
+                  <td><i class="fa-solid fa-headphones"></i> AirPods Pro 2 <small>Apple - USB-C</small></td>
+                  <td><span class="badge orange">AUDIO</span></td>
+                  <td><span class="badge red">3</span></td>
+                  <td>€279</td>
+                  <td><span class="status warning">Stock Faible</span></td>
+                  <td><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash delete"></i></td>
+                </tr>
+
+                <tr>
+                  <td>#004</td>
+                  <td><i class="fa-solid fa-tablet-screen-button"></i> iPad Air <small>Apple - 64GB</small></td>
+                  <td><span class="badge purple">TABLETTE</span></td>
+                  <td><span class="badge green">22</span></td>
+                  <td>€649</td>
+                  <td><span class="status active">Actif</span></td>
+                  <td><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash delete"></i></td>
+                </tr>
+
+                <tr>
+                  <td>#005</td>
+                  <td><i class="fa-solid fa-tv"></i> Apple TV 4K <small>128GB - WiFi</small></td>
+                  <td><span class="badge pink">TV</span></td>
+                  <td><span class="badge yellow">12</span></td>
+                  <td>€179</td>
+                  <td><span class="status active">Actif</span></td>
+                  <td><i class="fa-solid fa-pen-to-square edit"></i> <i class="fa-solid fa-trash delete"></i></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+
+  <!-- ===== POPUP PROFIL ===== -->
+  <input type="checkbox" id="open-profile" class="profile-toggle">
+
+  <div class="profile-overlay">
+    <label for="open-profile" class="profile-bg"></label>
+
+    <div class="profile-box">
+      <header class="profile-header">
+        <h2><i class="fa-solid fa-user"></i> Mon Profil</h2>
+        <label for="open-profile" class="close-profile">&times;</label>
+      </header>
+
+      <div class="profile-content">
+        <div class="profile-photo">
+          <i class="fa-solid fa-circle-user"></i>
+          <button class="btn-photo">Changer la photo</button>
+        </div>
+
+        <div class="profile-grid">
+          <div>
+            <label>Nom :</label>
+            <input type="text" value="Administrateur">
+          </div>
+
+          <div>
+            <label>Prénom :</label>
+            <input type="text" value="Jean">
+          </div>
+
+          <div>
+            <label>Email :</label>
+            <input type="email" value="admin@dashboard.com">
+          </div>
+
+          <div>
+            <label>Téléphone :</label>
+            <input type="text" value="+33 6 12 34 56 78">
+          </div>
+
+          <div class="full">
+            <label>Rôle :</label>
+            <input type="text" value="Gestionnaire">
+          </div>
+
+          <div class="full">
+            <label>Dernière connexion :</label>
+            <input type="text" value="15 Janvier 2024 à 14:30">
+          </div>
+        </div>
+      </div>
+
+      <footer class="profile-footer">
+        <label for="open-profile" class="btn-cancel">Fermer</label>
+        <button class="btn-save">Sauvegarder</button>
+      </footer>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

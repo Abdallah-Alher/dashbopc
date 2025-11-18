@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paramètres – Gestion de Stock</title>
+
+    <!-- CSS global du dashboard -->
+    <link rel="stylesheet" href="../css/parametres.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-chart-line"></i>
+                <h2>Dashboard</h2>
+            </div>
+
+            <nav class="menu">
+                <a href="dashboard.html"><i class="fa-solid fa-table-columns"></i> Tableau de Bord</a>
+                <a href="analytics.html"><i class="fa-solid fa-chart-pie"></i> Analytics</a>
+                <a href="commands.html"><i class="fa-solid fa-cart-shopping"></i> Commandes</a>
+                <a href="parametres.html" class="active"><i class="fa-solid fa-gear"></i> Paramètres</a>
+                <a href="rapports.html"><i class="fa-solid fa-file-lines"></i> Rapports</a>
+                <a href="notification.html"><i class="fa-solid fa-bell"></i> Notifications</a>
+            </nav>
+
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <div>
+                        <h4>Administrateur</h4>
+                        <p>Gestionnaire</p>
+                    </div>
+                </div>
+                <label for="open-profile" class="btn-profile">Mon Profil</label>
+
+                <!-- 🔴 Déconnexion → retour page de connexion -->
+                <a href="../../index.html" class="btn-logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
+                </a>
+
+            </div>
+        </aside>
+
+        <!-- 🔝 TOPBAR -->
+        <header class="topbar">
+            <h1>Gestion de Stock - Produits Électroniques</h1>
+            <div class="user-top">
+                <!-- Icône notification -->
+                <a href="notification.html" class="notif-icon">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-badge">3</span> <!-- badge placé SUR la cloche -->
+                </a>
+
+                <!-- Profil -->
+                <i class="fa-solid fa-user"></i>
+                <span class="username">Administrateur</span>
+            </div>
+
+        </header>
+
+
+
+
+        <!-- ========= CONTENU ========= -->
+        <!-- ========= CONTENU ========= -->
+        <main class="main-content">
+
+            <!-- TITRE PAGE -->
+            <section class="page-header">
+                <h1><i class="fa-solid fa-gears"></i> Paramètres & Configuration</h1>
+                <p>Configuration du système et préférences utilisateur</p>
+            </section>
+
+            <!-- =============================== -->
+            <!--     PARAMÈTRES GÉNÉRAUX        -->
+            <!-- =============================== -->
+
+            <section class="setting-section">
+
+                <h2 class="section-title"><i class="fa-solid fa-sliders"></i> Paramètres Généraux</h2>
+
+                <div class="settings-grid">
+
+                    <!-- Notifications -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Notifications</h3>
+                            <p>Recevoir des notifications par email</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <!-- Mode sombre -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Mode Sombre</h3>
+                            <p>Activer le thème sombre</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <!-- Auto sauvegarde -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Auto-sauvegarde</h3>
+                            <p>Sauvegarder automatiquement les modifications</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <!-- Langue -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Langue</h3>
+                            <p>Langue de l’interface</p>
+                        </div>
+
+                        <select class="select-lang">
+                            <option selected>Français</option>
+                            <option>English</option>
+                            <option>Español</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =============================== -->
+            <!--         GESTION DE STOCK       -->
+            <!-- =============================== -->
+
+            <section class="setting-section">
+
+                <h2 class="section-title"><i class="fa-solid fa-boxes-stacked"></i> Gestion de Stock</h2>
+
+                <div class="settings-grid">
+
+                    <!-- Seuil d'alerte -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Seuil d’alerte</h3>
+                            <p>Nombre minimum d’articles avant alerte</p>
+                        </div>
+
+                        <input type="number" class="input-number" value="10" min="1">
+
+                    </div>
+
+                    <!-- Auto-commande -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Auto-commande</h3>
+                            <p>Commander automatiquement en cas de stock faible</p>
+                        </div>
+
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+
+                    </div>
+
+                    <!-- Devise -->
+                    <div class="setting-card">
+
+                        <div class="card-text">
+                            <h3>Devise</h3>
+                            <p>Devise d'affichage</p>
+                        </div>
+
+                        <select class="select-lang">
+                            <option selected>Euro (€)</option>
+                            <option>Dollar ($)</option>
+                            <option>Livre Sterling (£)</option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================================= -->
+            <!--            SÉCURITÉ               -->
+            <!-- ================================= -->
+
+            <section class="setting-section">
+
+                <h2 class="section-title">
+                    <i class="fa-solid fa-shield-halved"></i> Sécurité
+                </h2>
+
+                <div class="settings-grid security-grid">
+
+                    <!-- Authentification à deux facteurs -->
+                    <div class="setting-card security-card">
+                        <div class="card-text">
+                            <h3>Authentification à deux facteurs</h3>
+                            <p>Activer la 2FA pour plus de sécurité</p>
+                        </div>
+                        <button class="btn-small">Activer</button>
+                    </div>
+
+                    <!-- Changer mot de passe -->
+                    <div class="setting-card security-card">
+                        <div class="card-text">
+                            <h3>Changer le mot de passe</h3>
+                            <p>Modifier votre mot de passe actuel</p>
+                        </div>
+                        <button class="btn-small">Changer</button>
+                    </div>
+
+                    <!-- Sessions actives -->
+                    <div class="setting-card security-card">
+                        <div class="card-text">
+                            <h3>Sessions actives</h3>
+                            <p>Gérer les sessions connectées</p>
+                        </div>
+                        <button class="btn-small btn-blue">Voir (3)</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+
+            <!-- ================================= -->
+            <!--               SYSTÈME             -->
+            <!-- ================================= -->
+
+            <section class="setting-section">
+
+                <h2 class="section-title">
+                    <i class="fa-solid fa-database"></i> Système
+                </h2>
+
+                <div class="system-buttons">
+
+                    <button class="sys-btn primary">
+                        <i class="fa-solid fa-floppy-disk"></i> Sauvegarder la configuration
+                    </button>
+
+                    <button class="sys-btn">
+                        <i class="fa-solid fa-download"></i> Exporter les paramètres
+                    </button>
+
+                    <button class="sys-btn">
+                        <i class="fa-solid fa-rotate-left"></i> Réinitialiser par défaut
+                    </button>
+
+                    <button class="sys-btn danger">
+                        <i class="fa-solid fa-trash"></i> Effacer toutes les données
+                    </button>
+
+                </div>
+
+            </section>
+
+
+
+        </main>
+
+
+
+
+
+
+
+    </div>
+
+
+
+    <!-- ===== POPUP PROFIL ===== -->
+    <input type="checkbox" id="open-profile" class="profile-toggle">
+
+    <div class="profile-overlay">
+        <label for="open-profile" class="profile-bg"></label>
+
+        <div class="profile-box">
+            <header class="profile-header">
+                <h2><i class="fa-solid fa-user"></i> Mon Profil</h2>
+                <label for="open-profile" class="close-profile">&times;</label>
+            </header>
+
+            <div class="profile-content">
+                <div class="profile-photo">
+                    <i class="fa-solid fa-circle-user"></i>
+                    <button class="btn-photo">Changer la photo</button>
+                </div>
+
+                <div class="profile-grid">
+                    <div>
+                        <label>Nom :</label>
+                        <input type="text" value="Administrateur">
+                    </div>
+
+                    <div>
+                        <label>Prénom :</label>
+                        <input type="text" value="Jean">
+                    </div>
+
+                    <div>
+                        <label>Email :</label>
+                        <input type="email" value="admin@dashboard.com">
+                    </div>
+
+                    <div>
+                        <label>Téléphone :</label>
+                        <input type="text" value="+33 6 12 34 56 78">
+                    </div>
+
+                    <div class="full">
+                        <label>Rôle :</label>
+                        <input type="text" value="Gestionnaire">
+                    </div>
+
+                    <div class="full">
+                        <label>Dernière connexion :</label>
+                        <input type="text" value="15 Janvier 2024 à 14:30">
+                    </div>
+                </div>
+            </div>
+
+            <footer class="profile-footer">
+                <label for="open-profile" class="btn-cancel">Fermer</label>
+                <button class="btn-save">Sauvegarder</button>
+            </footer>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
