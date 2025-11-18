@@ -306,8 +306,8 @@ body {
    🧩 CONTENU PRINCIPAL
 =========================== */
 .main-content {
-  margin-left: 240px;                  /* = largeur sidebar */
-  padding: 110px 40px 40px;            /* top + côtés */
+  margin-left: 240px;              /* largeur de la sidebar (on ne touche pas) */
+  padding: 110px 24px 32px;        /* AVANT : 110px 40px 40px */
   min-height: 100vh;
   background: #f5f7fa;
   flex: 1;
@@ -317,7 +317,7 @@ body {
    📊 SECTION DASHBOARD
 =========================== */
 .dashboard-section {
-  padding: 1rem 2rem;
+  padding: 1rem 0.5rem;            /* AVANT : 1rem 2rem */
 }
 
 .dashboard-section h2 {
@@ -334,40 +334,59 @@ body {
 /* ===========================
    💡 CARTES DE STATISTIQUES
 =========================== */
+/* ===========================
+   💡 CARTES DE STATISTIQUES
+=========================== */
 .stats-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  /* 4 colonnes fixes sur desktop */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.3rem;
   margin-bottom: 2.5rem;
 }
+
 
 .stats-card {
   background: var(--text-white);
   border-radius: 0.75rem;
-  padding: 2rem;
-  height: 140px;
+  padding: 1rem;
+  height: 100px;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
   box-shadow: var(--shadow);
 }
 
 .stats-card i {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: var(--text-white);
   padding: 1rem;
   border-radius: 0.75rem;
 }
 
+/* Contenu texte dans les cartes */
+.stats-card > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* centre verticalement le bloc texte */
+  margin-top: 1.5rem;
+  gap: 0.5rem;
+}
+
+/* Titre (le chiffre) */
 .stats-card h3 {
   font-size: 1.35rem;
   font-weight: 700;
+  margin-bottom: 0.25rem;    /* espace entre le chiffre et le texte */
 }
 
+/* Texte sous le chiffre */
 .stats-card p {
   color: var(--text-secondary);
-  font-size: 0.9rem;
+  font-size: 0.7rem;
+  white-space: nowrap;       /* "Produits en Stock" sur une seule ligne */
 }
+
 
 /* Couleurs des icônes dans les cartes */
 .stats-card.blue i { background: var(--primary-color); }
