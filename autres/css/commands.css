@@ -301,12 +301,13 @@ a {
    🧩 CONTENU PRINCIPAL
 =========================== */
 .main-content {
-  margin-left: 260px;
+  margin-left: 240px;          /* au lieu de 260px */
   padding: 110px 40px 40px;
   min-height: 100vh;
   background: #f5f7fa;
   flex: 1;
 }
+
 
 /* ===================================================== */
 /*   EN-TÊTE DE PAGE : Titre + sous-titre                */
@@ -338,6 +339,7 @@ a {
 /*   4 CARTES DU HAUT (statuts commandes)               */
 /* ===================================================== */
 
+/* Cartes stats du haut */
 .orders-stats-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -348,9 +350,14 @@ a {
 .stat-card {
   background: #fff;
   border-radius: 0.9rem;
-  padding: 1.5rem;
+  padding: 1.6rem 1.8rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   transition: 0.2s ease;
+  
+  /* ✅ icône à gauche, texte à droite */
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
 }
 
 .stat-card:hover {
@@ -358,16 +365,18 @@ a {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
 }
 
+/* carré icône */
 .icon {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 0.75rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  font-size: 1.35rem;
+  /* ❌ plus besoin de marge bas */
+  margin-bottom: 0;
 }
 
 /* couleurs icônes */
@@ -376,15 +385,17 @@ a {
 .purple { background: #8b5cf6; }
 .green  { background: #10b981; }
 
-.stat-card h3 {
+/* bloc texte à droite de l’icône */
+.stat-text h3 {
   font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 3px;
+  margin: 0 0 2px;
 }
 
-.stat-card p {
+.stat-text p {
   font-size: 0.95rem;
   color: #6b7280;
+  margin: 0;
 }
 
 /* ===================================================== */
