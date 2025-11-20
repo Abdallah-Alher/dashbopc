@@ -14,8 +14,13 @@
 </head>
 
 <body>
+    <!-- Checkbox qui pilote l’ouverture/fermeture du menu mobile -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
 
     <div class="dashboard-container">
+
+        <!-- Overlay cliquable (flou) -->
+        <label for="menu-toggle" class="overlay"></label>
 
         <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
         <aside class="sidebar">
@@ -54,6 +59,9 @@
 
         <!-- 🔝 TOPBAR -->
         <header class="topbar">
+            <label for="menu-toggle" class="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
             <h1>Gestion de Stock - Produits Électroniques</h1>
             <div class="user-top">
                 <!-- Icône notification -->

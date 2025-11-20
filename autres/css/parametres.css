@@ -56,6 +56,17 @@ body {
 /* ===========================
    📚 SIDEBAR
 =========================== */
+
+/* Checkbox menu mobile (cachée) */
+.menu-toggle {
+  display: none;
+}
+
+/* Overlay caché sur desktop */
+.overlay {
+  display: none;
+}
+
 .sidebar {
   position: fixed;
   top: 0;
@@ -700,24 +711,81 @@ body {
     overflow-x: hidden;
   }
 
+  /* TOPBAR mobile */
   .topbar {
     left: 0;
     height: 65px;
     padding: 0 1rem;
+    gap: 1rem;
   }
 
+  /* Icône hamburger visible seulement en mobile */
+  .hamburger {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    margin-right: 0.5rem;
+  }
+
+  /* Contenu principal centré comme sur les autres pages */
   .main-content {
     margin-left: 0;
     padding: 80px 1rem 24px;
+    width: 95%;
+    max-width: 95%;
+    margin: 0 auto;
   }
 
+  /* Sidebar coulissante */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -260px;          /* cachée par défaut */
+    width: 240px;
+    height: 100vh;
+    background: var(--sidebar-color);
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+
+  /* Quand on coche le menu-toggle → sidebar visible */
+  .menu-toggle:checked ~ .dashboard-container .sidebar {
+    left: 0;
+  }
+
+  /* Overlay plein écran avec flou */
+  .overlay {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
+  }
+
+  /* Quand le menu est ouvert → overlay visible & cliquable */
+  .menu-toggle:checked ~ .dashboard-container .overlay {
+    opacity: 1;
+    pointer-events: auto;  /* clic sur le flou → recoche le checkbox → ferme */
+  }
+
+  /* Grilles en 1 colonne */
   .settings-grid,
   .security-grid {
     grid-template-columns: 1fr;
   }
 
+  /* Boutons système en colonne */
   .system-buttons {
     flex-direction: column;
     align-items: stretch;
   }
 }
+
