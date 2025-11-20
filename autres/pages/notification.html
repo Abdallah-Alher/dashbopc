@@ -16,7 +16,13 @@
 </head>
 
 <body>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+
     <section class="dashboard-container">
+        <label for="nav-toggle" class="sidebar-overlay"></label>
+        <!-- sidebar + topbar + contenu -->
+
         <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
         <aside class="sidebar">
             <div class="logo">
@@ -54,6 +60,11 @@
 
         <!-- 🔝 TOPBAR -->
         <header class="topbar">
+
+            <label for="nav-toggle" class="topbar-burger">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+
             <h1>Gestion de Stock - Produits Électroniques</h1>
             <div class="user-top">
                 <!-- Icône notification -->

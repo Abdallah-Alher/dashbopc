@@ -263,5 +263,9 @@ Si tu veux, sur la **prochaine page**, on pourra vérifier ensemble que tu maît
 
 
 **a******************************************************************************************************************************************************************************************************a** 
+Des ajustement dans le media query écran 768px :
+Oui le problème de la sidebar existe ici aussi, arrange fait la meme chose que les autres pages,
+En plus de cela un petit ajustement au niveau des options, les champs d'options s'etend sur le page.
+Dans les cinq cartes qui suivent l'icon revient en haut et centré, les textes s'alignes en colone
 
 

@@ -49,6 +49,23 @@ body {
   min-height: 100vh;
 }
 
+/* ===== Toggle mobile & overlay sidebar ===== */
+.nav-toggle {
+  display: none; /* checkbox du hamburger */
+}
+
+/* Fond sombre et flou quand le menu est ouvert */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 80;
+}
+
 /* ===========================
    📚 SIDEBAR
 =========================== */
@@ -111,12 +128,11 @@ body {
   color: #fff;
 }
 
-/* Pied de sidebar */
 /* Pied de la sidebar */
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #020617; /* très sombre comme sur la maquette */
+  background: #020617;
 }
 
 /* bloc user */
@@ -179,7 +195,6 @@ body {
   background: #b91c1c;
 }
 
-
 /* ===========================
    🔝 TOPBAR
 =========================== */
@@ -203,6 +218,15 @@ body {
   font-weight: 700;
 }
 
+/* bouton hamburger (caché sur desktop) */
+.topbar-burger {
+  display: none;
+  margin-right: 1rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+}
+
 .user-top {
   display: flex;
   align-items: center;
@@ -218,12 +242,11 @@ body {
   color: var(--text-secondary);
 }
 
-/* Icone cloche */
 /* Zone à droite dans la topbar */
 .user-top {
   display: flex;
   align-items: center;
-  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  gap: 1.9rem;
   color: var(--text-secondary);
 }
 
@@ -259,10 +282,10 @@ body {
 /* petit cercle bien rond sur la cloche */
 .notif-icon .notif-badge {
   position: absolute;
-  top: -2px;               /* ← position exacte sur l’icône */
+  top: -2px;
   right: -4px;
-  width: 20px;             /* largeur fixe */
-  height: 20px;            /* hauteur fixe → cercle parfait */
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -273,20 +296,21 @@ body {
   font-weight: 600;
   box-shadow: 0 0 0 2px #ffffff;
   transform-origin: center;
-  padding: 0;              /* pas de padding pour éviter la déformation */
+  padding: 0;
   animation: notifPulse 1.4s ease-in-out infinite;
 }
 
 /* animation de “gonflement” */
 @keyframes notifPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   30% {
-    transform: scale(1.22);   /* le badge gonfle */
+    transform: scale(1.22);
   }
   60% {
-    transform: scale(0.9);    /* redevient un peu plus petit */
+    transform: scale(0.9);
   }
 }
 
@@ -773,24 +797,84 @@ body {
     padding: 0 1rem;
   }
 
+  .topbar-burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .main-content {
     margin-left: 0;
     padding: 80px 1rem 24px;
   }
 
+  /* Sidebar cachée par défaut sur mobile */
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+  }
+
+  /* Quand #nav-toggle est coché → la sidebar glisse */
+  .nav-toggle:checked ~ .dashboard-container .sidebar {
+    transform: translateX(0);
+  }
+
+  /* Overlay visible et cliquable quand le menu est ouvert */
+  .nav-toggle:checked ~ .dashboard-container .sidebar-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* 4 petites cartes du haut : 2 par ligne */
   .notif-stats {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Filtres : champs sur toute la largeur, comme la maquette */
   .notif-filters {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
+
+  .btn-filter {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Cartes de notifications : icône centrée en haut, texte en colonne */
   .notifications-list {
     gap: 14px;
   }
 
+  .notif-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 32px;
+  }
+
+  .notif-left-icon {
+    margin: 0 auto 14px; /* icône centrée en haut */
+  }
+
+  .notif-actions {
+    flex-wrap: wrap;
+  }
+
+  .notif-time {
+    position: static;
+    margin-top: 8px;
+    align-self: flex-end; /* heure en bas à droite */
+  }
+
+  /* Barre d’actions en bas */
   .notif-footer-actions {
     flex-direction: column;
     align-items: flex-start;
@@ -798,6 +882,7 @@ body {
   }
 }
 
+/* Une seule carte par ligne sur les très petits écrans */
 @media (max-width: 480px) {
   .notif-stats {
     grid-template-columns: 1fr;
