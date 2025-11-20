@@ -1019,8 +1019,11 @@ label.btn-edit {
    📱 RESPONSIVE 768px – Sidebar mobile + overlay + hamburger
 ========================================================= */
 
+/* =========================================================
+   📱 RESPONSIVE 768px – Commandes
+   ========================================================= */
 @media (max-width: 768px) {
-  /* hamburger visible */
+  /* Hamburger visible */
   .hamburger {
     display: block;
     font-size: 1.8rem;
@@ -1028,18 +1031,18 @@ label.btn-edit {
     cursor: pointer;
   }
 
-  /* layout global */
+  /* Layout global */
   .dashboard-container {
     width: 100%;
     overflow-x: hidden;
   }
 
   .main-content {
-    margin-left: 0 !important;
+    /* ✅ centre le contenu comme sur Dashboard / Analytics */
+    margin: 0 auto;
     padding-top: 85px;
     width: 95%;
     max-width: 95%;
-    margin: 0 auto;
     padding-left: 0;
     padding-right: 0;
   }
@@ -1060,10 +1063,9 @@ label.btn-edit {
     left: 0;
   }
 
-  /* overlay plein écran */
+  /* Overlay plein écran */
   .overlay {
     position: fixed;
-    display: block;
     top: 0;
     left: 0;
     width: 100%;
@@ -1074,6 +1076,7 @@ label.btn-edit {
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 900;
+    display: block;
   }
 
   .menu-toggle:checked ~ .dashboard-container .overlay {
@@ -1081,7 +1084,7 @@ label.btn-edit {
     pointer-events: auto;
   }
 
-  /* topbar alignée */
+  /* Topbar mobile */
   .topbar {
     left: 0 !important;
     padding: 1rem;
@@ -1093,25 +1096,58 @@ label.btn-edit {
     font-size: 1rem;
   }
 
-  /* cartes stats : 2 colonnes */
+  /* Cartes stats : 2 colonnes comme sur la maquette */
   .orders-stats-cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
   }
 
-  /* filtres en colonne */
+  /* Filtres en colonne */
+  .orders-filter-card {
+    margin-top: 1.5rem;
+  }
+
   .filter-row {
     grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: stretch;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  /* Liste des commandes */
+  .orders-list {
+    margin-top: 1.75rem;
+  }
+
+  .order-card {
+    width: 100%;
+  }
+  /* Statut + Montant */
+.order-card__status {
+  text-align: left;
+}
+
+.order-card__status .status-text {
+  display: block;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.order-card__status .status-amount {
+  font-size: 22px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+  /* ✅ IMPORTANT : on garde le header des cartes sur UNE ligne */
+  .order-card__header {
+    display: flex;
+    flex-direction: column; /* on annule le mode colonne */
+    gap: 1rem;
   }
 }
 
-/* plus petit écran */
-@media (max-width: 480px) {
-  .orders-stats-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .order-card__item {
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-}

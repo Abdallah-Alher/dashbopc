@@ -16,3 +16,15 @@ Le sidebar tout est propre, pour le topbar la disposition est bon, mais un petit
 J'ai fini avec la Topbar, pour finir avec la sidebare ajoute moi action des que je clique sur déonection pour que ça me renvois vers index.html qui est la page de connection.
 
 projet : index.html/autres/pages : dashboard.html
+
+Voici mon resultat actuel, le contenue n'est pas centré, il est panché vers la gauche, essayez d'arranger ça comme pour les autres pages que nous avons fait pour les page Tableau de bord et Analytics, en suite les quatres cartes, puis au niveau des cartes des trois cartes qui sont en bas il y'a un arangement à faire dans chaque header les div sont devenues en colonnes, après :
+<div class="order-card__info">
+<h2>Commande #CMD-2024-001</h2>
+<p>Client : <span>Jean Dupont</span></p>
+<p>Date : <span>15 Jan 2024</span></p>
+</div> vient :
+div class="order-card__status">
+<span class="status-text">En attente</span>
+<strong class="status-amount">€1,199.00</strong>
+</div> 
+Fait moi cette. corection
