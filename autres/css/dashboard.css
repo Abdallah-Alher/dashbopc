@@ -588,7 +588,7 @@ table {
   border-collapse: collapse;
   font-size: 0.9rem;
   min-width: 900px;
-  line-height: 1.8;
+  line-height: 2.8;
 }
 
 thead {
@@ -788,12 +788,15 @@ tr:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 1rem 1.25rem;
-    gap: 0.75rem;
+    gap: 2rem;
   }
 
   .section-header h2 {
     font-size: 1.1rem;
+    padding-top: 1rem;
+    margin: 0;
   }
 
   /* Bloc de droite : recherche + boutons */
