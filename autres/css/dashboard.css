@@ -346,19 +346,19 @@ body {
   display: grid;
   /* 4 colonnes fixes sur desktop */
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.3rem;
-  margin-bottom: 2.5rem;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 
 .stats-card {
   background: var(--text-white);
   border-radius: 0.75rem;
-  padding: 1rem;
-  height: 100px;
+  padding: 3rem;
+  height: 130px;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   box-shadow: var(--shadow);
 }
 
@@ -388,7 +388,7 @@ body {
 /* Texte sous le chiffre */
 .stats-card p {
   color: var(--text-secondary);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   white-space: nowrap;       /* "Produits en Stock" sur une seule ligne */
 }
 
