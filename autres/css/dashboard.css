@@ -460,8 +460,8 @@ body {
 /* Titre à gauche */
 .section-title {
   margin: 0;
-  padding-top: 1rem;
-  font-size: 1.35rem;
+  padding-top: 2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -506,6 +506,20 @@ body {
   font-size: 0.95rem;
   color: var(--text-primary);
 }
+
+/* Focus barre de recherche */
+.section-header .search-input:focus-within {
+  border-color: #2563eb;                          /* bordure bleue */
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);  /* halo bleu autour */
+}
+
+/* On enlève le focus interne de l’input pour garder seulement le halo externe */
+.section-header .search-input .form-input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
 
 /* Colonne de droite : boutons alignés à droite */
 .header-actions {
