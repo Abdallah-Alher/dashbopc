@@ -11,7 +11,7 @@
   --primary-dark: #1d4ed8;
   --secondary-color: #64748b;
   --background-color: #f8fafc;
-  --sidebar-color: #1e293b;
+  --sidebar-color: #202E43;
   --sidebar-hover: #334155;
   --text-primary: #1e293b;
   --text-secondary: #64748b;
@@ -132,7 +132,7 @@ body {
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #020617; /* très sombre comme sur la maquette */
+  background: #202E43; /* très sombre comme sur la maquette */
 }
 
 /* bloc user */
@@ -143,11 +143,12 @@ body {
   margin-bottom: 1rem;
   padding: 0.75rem 0.9rem;
   border-radius: 0.75rem;
-  background: #0f172a;
+  background: #3D4758;
 }
 
 .user-info i {
   font-size: 2rem;
+  color: #2970EE;
 }
 
 .user-info h4 {
@@ -176,7 +177,7 @@ body {
 }
 
 .btn-profile {
-  background: #0f172a;
+  background: #3D4758;
   color: #e5e7eb;
   margin-bottom: 0.75rem;
 }
