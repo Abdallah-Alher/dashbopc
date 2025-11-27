@@ -269,3 +269,10 @@ En plus de cela un petit ajustement au niveau des options, les champs d'options 
 Dans les cinq cartes qui suivent l'icon revient en haut et centré, les textes s'alignes en colone
 
 
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0;
+}

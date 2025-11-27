@@ -1,11 +1,3 @@
-/* ==========================================================
-   📊 STOCKMANAGER – ANALYTICS (analytics.html)
-   Sidebar + Topbar + Cartes + Graphiques + Top Produits
-   ========================================================== */
-
-/* ===========================
-   🌈 VARIABLES GLOBALES
-=========================== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -23,9 +15,6 @@
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-/* ===========================
-   ⚙️ RESET
-=========================== */
 html,
 body {
   width: 100%;
@@ -54,17 +43,13 @@ a {
   display: none;
 }
 
-/* ===========================
-   🧱 LAYOUT GLOBAL
-=========================== */
+/*  LAYOUT GLOBAL */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* ===========================
-   📚 SIDEBAR
-=========================== */
+/*  SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
@@ -122,7 +107,6 @@ a {
   background: var(--primary-color);
 }
 
-/* Pied de la sidebar */
 /* Pied de la sidebar */
 .sidebar-footer {
   padding: 1.5rem;
@@ -196,9 +180,7 @@ a {
 
 
 
-/* ===========================
-   🔝 TOPBAR
-=========================== */
+/*  TOPBAR */
 .topbar {
   position: fixed;
   top: 0;
@@ -278,10 +260,10 @@ a {
 /* petit cercle bien rond sur la cloche */
 .notif-icon .notif-badge {
   position: absolute;
-  top: -2px;               /* ← position exacte sur l’icône */
+  top: -2px;               
   right: -4px;
-  width: 20px;             /* largeur fixe */
-  height: 20px;            /* hauteur fixe → cercle parfait */
+  width: 20px;             
+  height: 20px;            
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -292,7 +274,7 @@ a {
   font-weight: 600;
   box-shadow: 0 0 0 2px #ffffff;
   transform-origin: center;
-  padding: 0;              /* pas de padding pour éviter la déformation */
+  padding: 0;              
   animation: notifPulse 1.4s ease-in-out infinite;
 }
 
@@ -302,16 +284,14 @@ a {
     transform: scale(1);
   }
   30% {
-    transform: scale(1.22);   /* le badge gonfle */
+    transform: scale(1.22);   
   }
   60% {
-    transform: scale(0.9);    /* redevient un peu plus petit */
+    transform: scale(0.9);    
   }
 }
 
-/* ===========================
-   🧩 CONTENU PRINCIPAL
-=========================== */
+/* CONTENU PRINCIPAL */
 .main-content {
   margin-left: 240px;
   padding: 110px 40px 40px;
@@ -320,10 +300,7 @@ a {
   flex: 1;
 }
 
-/* =========================================================
-   🔹 SECTION ANALYTICS – TITRE + CARTES
-   (section.dashboard-section)
-   ========================================================= */
+/*  SECTION ANALYTICS – TITRE + CARTES */
 .dashboard-section {
   padding: 0.rem;
 }
@@ -336,10 +313,11 @@ a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-top: 1rem;
+
 }
 
 .dashboard-section h2 i {
-  color: var(--primary-color);
   font-size: 1.5rem;
 }
 
@@ -347,15 +325,15 @@ a {
   font-size: 1rem;
   color: var(--text-secondary);
   margin-bottom: 2.5rem;
+  margin-top: 2rem;
 }
 
-/* ========= CARTES STATISTIQUES ========= */
-/* ========= CARTES STATISTIQUES ========= */
-/* Desktop : 4 cartes alignées comme sur dashboard */
+/*  CARTES STATISTIQUES */
+
 .stats-container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 4rem;
   width: 100%;
 }
 
@@ -363,13 +341,19 @@ a {
 .stats-card {
   background-color: #fff;
   border-radius: 0.75rem;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+}
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0;
 }
 
 /* effet de survol */
@@ -388,7 +372,7 @@ a {
 
 /* texte et chiffres */
 .stats-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   padding-top: 1rem;
@@ -431,9 +415,30 @@ a {
   background-color: #fee2e2;
   color: #991b1b;
 }
-/* =========================================================
-   ANALYTICS : SECTION 2 (graphiques)
-========================================================= */
+
+/* Pastille de variation sous chaque carte */
+.stats-card .badge {
+  padding: 0.4rem 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Variation positive (vert) */
+.badge.green {
+  background-color: #dcfce7;
+  color: #15803d;
+}
+
+/* Variation négative (rouge) */
+.badge.red {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+/*  ANALYTICS : SECTION 2 (graphiques) */
 .analytics-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -455,7 +460,7 @@ a {
 .panel-header {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1.25rem;
+  padding: 2rem 1.25rem;
   border-bottom: 1px solid var(--border-color);
   gap: 1rem;
   background-color: whitesmoke;
@@ -469,16 +474,11 @@ a {
   gap: 0.5rem;
 }
 
-.panel-header h3 i {
-  color: var(--primary-color);
-}
-
-/* Select (aucun JS) */
-/* === Select "30 derniers jours" : icône dans le champ === */
+/*  Select "30 derniers jours" : icône dans le champ  */
 .select-wrap {
   position: relative;
   display: inline-block;
-  align-self: flex-start;      /* ← très important : ne plus s’étirer sur toute la largeur */
+  align-self: flex-start;      
 }
 
 .select-wrap select {
@@ -487,8 +487,8 @@ a {
   -moz-appearance: none;
   background: #ffffff;
   border: 1px solid var(--border-color);
-  border-radius: 999px;
-  padding: 0.55rem 2.5rem 0.55rem 1.5rem;  /* espace à droite pour l’icône */
+  padding: 0.55rem 2.5rem 0.55rem 1.5rem; 
+  border-radius: 10px; 
   font-size: 0.95rem;
   color: var(--text-primary);
   box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
@@ -513,14 +513,14 @@ a {
   padding: 1rem 1.25rem 1.25rem;
 }
 
-/* === Barres + labels : 12 mois visibles sans être coupés === */
+/*  Barres + labels : 12 mois visibles sans être coupés  */
 .bars {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: end;
-  gap: 0.7rem;                            /* moins d’espace entre les barres */
+  gap: 0.7rem;                            
   height: 280px;
-  padding: 1.1rem 0.4rem 0;               /* padding latéral réduit */
+  padding: 1.1rem 0.4rem 0;               
   background: linear-gradient(#ffffff, #fbfdff);
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
@@ -543,17 +543,17 @@ a {
 }
 
 /* hauteurs (échelle relative) */
-.h-20 { height: 20%; }
+.h-20 { height: 10%; }
 .h-22 { height: 22%; }
-.h-24 { height: 24%; }
-.h-26 { height: 26%; }
-.h-30 { height: 30%; }
+.h-24 { height: 28%; }
+.h-26 { height: 45%; }
+.h-30 { height: 70%; }
 .h-34 { height: 34%; }
-.h-36 { height: 36%; }
-.h-38 { height: 38%; }
-.h-40 { height: 40%; }
+.h-36 { height: 48%; }
+.h-38 { height: 58%; }
+.h-40 { height: 70%; }
 .h-44 { height: 44%; }
-.h-48 { height: 48%; }
+.h-48 { height: 78%; }
 
 /* bulles valeur au survol */
 .bar::after {
@@ -616,17 +616,17 @@ a {
 
 .bar-labels small {
   font-size: 0.75rem;
-  color: var(--text-secondary);
+  color: var(--primary-color);
 }
 
 /* légende */
 .legend {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 1rem;
   color: var(--text-secondary);
-  padding-left: 0.25rem;
+  padding-left: 1rem;
   background-color: whitesmoke;
   height: 4rem;
 }
@@ -664,7 +664,7 @@ a {
     "label amount"
     "bar   percent";
   row-gap: 0.5rem;
-  padding: 1rem 0;
+  padding: 1.7rem 0;
   border-bottom: 1px solid var(--border-color);
   align-items: center;
 }
@@ -696,7 +696,7 @@ a {
 .split-list .progress span {
   display: block;
   height: 100%;
-  background: #dbeafe;
+  /* background: #dbeafe; */
 }
 
 .split-list .percent {
@@ -705,9 +705,7 @@ a {
   font-size: 0.85rem;
   color: var(--text-secondary);
 }
-/* =========================================================
-   ANALYTICS – SECTION 3 : TOP PRODUITS
-========================================================= */
+/* ANALYTICS – SECTION 3 : TOP PRODUITS */
 
 .top-products {
   margin-top: 1.8rem;
@@ -814,15 +812,9 @@ a {
   border-radius: 14px;
 }
 
-/* =========================================================
-   📱 RESPONSIVE – ANALYTICS
-========================================================= */
+/* RESPONSIVE – ANALYTICS */
 
-/* Layout + stats + topbar pour mobile */
-/* Layout + stats + topbar pour mobile / tablette (768px) */
 @media (max-width: 768px) {
-  /* ====== TOPBAR / LAYOUT GÉNÉRAL (comme dashboard) ====== */
-
   /* Hamburger visible */
   .hamburger {
     display: block;
@@ -901,7 +893,7 @@ a {
     font-size: 1rem;
   }
 
-  /* ====== 4 CARTES ANALYTICS (2 par ligne) ====== */
+  /* 4 CARTES ANALYTICS (2 par ligne)  */
 
   .stats-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -912,10 +904,10 @@ a {
     padding: 1.5rem;
   }
 
-  /* ====== SECTION GRAPHIQUES ====== */
+  /* SECTION GRAPHIQUES  */
 
   .analytics-grid {
-    grid-template-columns: 1fr;     /* une seule colonne */
+    grid-template-columns: 1fr;     
     width: 100%;
     padding: 0 0 1.5rem;
     margin-top: 1rem;
@@ -944,7 +936,7 @@ a {
     font-size: 0.8rem;
   }
 
-  /* ====== TOP PRODUITS (carte pleine largeur) ====== */
+  /* TOP PRODUITS (carte pleine largeur)*/
 
   .top-products {
     width: 100%;
@@ -975,9 +967,7 @@ a {
 }
 
 
-/* =========================================================
-   POPUP PROFIL (commun aux pages qui ont le modal profil)
-========================================================= */
+/* POPUP PROFIL (commun aux pages qui ont le modal profil) */
 .profile-toggle {
   display: none;
 }
