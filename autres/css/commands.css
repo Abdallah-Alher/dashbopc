@@ -1,12 +1,3 @@
-/* ==========================================================
-   🛒 STOCKMANAGER – COMMANDES (commands.html)
-   Sidebar + Topbar + Cartes stats + Filtres + Cartes commandes
-   + Popups Voir détails / Modifier + Profil
-   ========================================================== */
-
-/* ===========================
-   🌈 VARIABLES GLOBALES
-=========================== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -24,9 +15,6 @@
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-/* ===========================
-   ⚙️ RESET
-=========================== */
 html,
 body {
   width: 100%;
@@ -60,17 +48,12 @@ a {
   display: none;
 }
 
-/* ===========================
-   🧱 LAYOUT GLOBAL
-=========================== */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* ===========================
-   📚 SIDEBAR
-=========================== */
+/*  SIDEBAR  */
 .sidebar {
   position: fixed;
   top: 0;
@@ -128,12 +111,12 @@ a {
   background: var(--primary-color);
 }
 
-/* Pied de la sidebar */
+
 /* Pied de la sidebar */
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #202E43; /* très sombre comme sur la maquette */
+  background: #202E43; 
 }
 
 /* bloc user */
@@ -201,9 +184,7 @@ a {
 }
 
 
-/* ===========================
-   🔝 TOPBAR
-=========================== */
+/* TOPBAR */
 .topbar {
   position: fixed;
   top: 0;
@@ -229,13 +210,11 @@ a {
   display: none;
 }
 
-/* User à droite */
-
 /* Zone à droite dans la topbar */
 .user-top {
   display: flex;
   align-items: center;
-  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  gap: 1.9rem;            
   color: var(--text-secondary);
 }
 
@@ -277,11 +256,9 @@ a {
 /* petit cercle bien rond sur la cloche */
 .notif-icon .notif-badge {
   position: absolute;
-  top: -2px;               /* ← position exacte sur l’icône */
-  right: -4px;
-  width: 20px;             /* largeur fixe */
-  height: 20px;            /* hauteur fixe → cercle parfait */
-  border-radius: 50%;
+  top: -2px;               
+  width: 20px;             
+  height: 20px;            
   display: flex;
   align-items: center;
   justify-content: center;
@@ -291,7 +268,8 @@ a {
   font-weight: 600;
   box-shadow: 0 0 0 2px #ffffff;
   transform-origin: center;
-  padding: 0;              /* pas de padding pour éviter la déformation */
+  padding: 0; 
+  border-radius: 999px;             
   animation: notifPulse 1.4s ease-in-out infinite;
 }
 
@@ -307,9 +285,7 @@ a {
     transform: scale(0.9);    /* redevient un peu plus petit */
   }
 }
-/* ===========================
-   🧩 CONTENU PRINCIPAL
-=========================== */
+/* CONTENU PRINCIPAL */
 .main-content {
   margin-left: 240px;          /* au lieu de 260px */
   padding: 110px 40px 40px;
@@ -318,10 +294,6 @@ a {
   flex: 1;
 }
 
-
-/* ===================================================== */
-/*   EN-TÊTE DE PAGE : Titre + sous-titre                */
-/* ===================================================== */
 .page-header {
   margin-bottom: 25px;
 }
@@ -333,10 +305,8 @@ a {
   align-items: center;
   gap: 0.7rem;
   color: #111827;
-}
-
-.page-header h1 i {
-  color: #2563eb;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .page-header p {
@@ -345,9 +315,7 @@ a {
   font-size: 1rem;
 }
 
-/* ===================================================== */
-/*   4 CARTES DU HAUT (statuts commandes)               */
-/* ===================================================== */
+/*   4 CARTES DU HAUT (statuts commandes)   */
 
 /* Cartes stats du haut */
 .orders-stats-cards {
@@ -360,11 +328,11 @@ a {
 .stat-card {
   background: #fff;
   border-radius: 0.9rem;
-  padding: 1.6rem 1.8rem;
+  padding: 2.5rem 1.8rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
   transition: 0.2s ease;
   
-  /* ✅ icône à gauche, texte à droite */
+  /*  icône à gauche, texte à droite */
   display: flex;
   align-items: center;
   gap: 1.1rem;
@@ -385,7 +353,7 @@ a {
   align-items: center;
   color: #fff;
   font-size: 1.35rem;
-  /* ❌ plus besoin de marge bas */
+  /*  plus besoin de marge bas */
   margin-bottom: 0;
 }
 
@@ -408,20 +376,18 @@ a {
   margin: 0;
 }
 
-/* ===================================================== */
 /*   FILTRES COMMANDES                                   */
-/* ===================================================== */
 
 .orders-filter-card {
   background: #fff;
   border-radius: 0.9rem;
-  padding: 1.5rem;
+  padding: 3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
 .filter-row {
   display: grid;
-  grid-template-columns: 220px 220px 1fr;
+  grid-template-columns: 220px 220px 320px;
   gap: 1.5rem;
   align-items: end;
 }
@@ -463,6 +429,7 @@ a {
   padding: 0.7rem 1rem;
   border: none;
   font-size: 0.95rem;
+
 }
 
 .search-box button {
@@ -478,9 +445,8 @@ a {
   background: #1d4ed8;
 }
 
-/* ============================================================= */
-/*                LISTE DES COMMANDES : CARTES                   */
-/* ============================================================= */
+/*    LISTE DES COMMANDES : CARTES     */
+
 
 .orders-list {
   margin-top: 25px;
@@ -491,7 +457,7 @@ a {
   background: #ffffff;
   border-radius: 18px;
   box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
-  padding: 26px 26px 22px;
+  padding: 40px 40px 22px;
   margin-bottom: 30px;
   transition: 0.2s ease;
 }
@@ -634,9 +600,8 @@ label.btn-edit {
   cursor: pointer;
 }
 
-/* ============================================================= */
-/*                      POPUP VOIR DÉTAILS                       */
-/* ============================================================= */
+
+/*          POPUP VOIR DÉTAILS       */
 
 .order-modal-toggle {
   display: none;
@@ -675,7 +640,7 @@ label.btn-edit {
 /* Box popup */
 .order-modal {
   position: relative;
-  width: 720px;
+  width: 600px;
   max-height: 90vh;
   background: #fff;
   border-radius: 14px;
@@ -783,9 +748,7 @@ label.btn-edit {
   gap: 10px;
 }
 
-/* ============================================================= */
-/*                        POPUP MODIFIER                         */
-/* ============================================================= */
+/*            POPUP MODIFIER          */
 
 .modal-toggle {
   display: none;
@@ -820,7 +783,7 @@ label.btn-edit {
 
 /* Box */
 .modal-box {
-  width: 650px;
+  width: 525px;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -897,9 +860,7 @@ label.btn-edit {
   cursor: pointer;
 }
 
-/* =========================================================
-   POPUP PROFIL (même principe que les autres pages)
-========================================================= */
+/* POPUP PROFIL  */
 
 .profile-toggle {
   display: none;
@@ -1025,13 +986,6 @@ label.btn-edit {
   cursor: pointer;
 }
 
-/* =========================================================
-   📱 RESPONSIVE 768px – Sidebar mobile + overlay + hamburger
-========================================================= */
-
-/* =========================================================
-   📱 RESPONSIVE 768px – Commandes
-   ========================================================= */
 @media (max-width: 768px) {
   /* Hamburger visible */
   .hamburger {
@@ -1048,7 +1002,7 @@ label.btn-edit {
   }
 
   .main-content {
-    /* ✅ centre le contenu comme sur Dashboard / Analytics */
+    /* centre le contenu comme sur Dashboard  */
     margin: 0 auto;
     padding-top: 85px;
     width: 95%;
@@ -1124,7 +1078,7 @@ label.btn-edit {
   }
 
   .search-box {
-    width: 100%;
+    width: 40%;
   }
 
   /* Liste des commandes */
@@ -1152,11 +1106,9 @@ label.btn-edit {
   font-weight: 700;
   color: #2563eb;
 }
-
-  /* ✅ IMPORTANT : on garde le header des cartes sur UNE ligne */
   .order-card__header {
     display: flex;
-    flex-direction: column; /* on annule le mode colonne */
+    flex-direction: column;
     gap: 1rem;
   }
 }
