@@ -253,7 +253,8 @@ body {
   justify-content: center;
   color: #1e293b;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 2rem;
+  text-decoration: none;
 }
 
 /* petit cercle bien rond sur la cloche */
@@ -323,7 +324,7 @@ body {
 .dashboard-section h2 {
   font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
+  margin-bottom: 2rem;
 }
 
 .dashboard-section p {

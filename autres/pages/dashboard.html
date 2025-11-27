@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dashboard | StockManager</title>
 
-  <!-- Google Font -->
+  <!-- Lien Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
+  <!-- Lien Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
-  <!-- CSS -->
+  <!-- Lien CSS -->
   <link rel="stylesheet" href="../css/dashboard.css" />
 </head>
 
@@ -26,7 +26,7 @@
     <!-- Overlay (fermeture du menu mobile) -->
     <label for="menu-toggle" class="overlay"></label>
 
-    <!-- ====================== SIDEBAR ====================== -->
+    <!--  SIDEBAR  -->
     <aside class="sidebar">
       <div class="logo">
         <i class="fa-solid fa-chart-line"></i>
@@ -53,18 +53,16 @@
 
         <label for="open-profile" class="btn-profile">Mon Profil</label>
 
-        <!-- 🔴 Déconnexion → retour page de connexion -->
+        <!-- Déconnexion pour le retour à la page de connexion -->
         <a href="../../index.html" class="btn-logout">
           <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
         </a>
-
       </div>
-
     </aside>
 
-    <!-- ====================== CONTENU PRINCIPAL ====================== -->
-    <main class="main-content">
+    <!-- ************************************* CONTENU PRINCIPAL*************************************** -->
 
+    <main class="main-content">
       <!-- Topbar -->
       <header class="topbar">
         <label for="menu-toggle" class="hamburger">
@@ -84,9 +82,6 @@
           <i class="fa-solid fa-user"></i>
           <span class="username">Administrateur</span>
         </div>
-
-
-
       </header>
 
       <!-- ====================== SECTION DASHBOARD ====================== -->
@@ -132,27 +127,23 @@
         <!-- Section Tableau -->
         <div class="table-wrapper">
           <div class="section-header">
-  <h2>Gestion des Stocks</h2>
+            <h2>Gestion des Stocks</h2>
 
-  <div class="actions">
-    <div class="search-input">
-      <i class="fa-solid fa-magnifying-glass"></i>
-      <input
-        type="text"
-        placeholder="Rechercher un produit..."
-        class="form-input"
-      />
-    </div>
+            <div class="actions">
+              <div class="search-input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Rechercher un produit..." class="form-input" />
+              </div>
 
-    <button class="btn-primary">
-      <i class="fa-solid fa-plus"></i> Ajouter Produit
-    </button>
+              <button class="btn-primary">
+                <i class="fa-solid fa-plus"></i> Ajouter Produit
+              </button>
 
-    <button class="btn-secondary">
-      <i class="fa-solid fa-download"></i> Exporter
-    </button>
-  </div>
-</div>
+              <button class="btn-secondary">
+                <i class="fa-solid fa-download"></i> Exporter
+              </button>
+            </div>
+          </div>
 
 
           <div class="table-container">
