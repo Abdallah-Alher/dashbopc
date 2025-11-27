@@ -1,11 +1,3 @@
-/* ==========================================================
-   🎯 STOCKMANAGER – DASHBOARD (page dashboard.html)
-   -> Sidebar + Topbar + Cartes + Tableau
-   ========================================================== */
-
-/* ===========================
-   🌈 VARIABLES GLOBALES
-=========================== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -23,9 +15,6 @@
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
-/* ===========================
-   ⚙️ RESET
-=========================== */
 html,
 body {
   width: 100%;
@@ -44,17 +33,12 @@ body {
   color: var(--text-primary);
 }
 
-/* ===========================
-   🧱 LAYOUT GLOBAL
-=========================== */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* ===========================
-   📚 SIDEBAR
-=========================== */
+/*  SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
@@ -114,11 +98,10 @@ body {
 }
 
 /* Pied de la sidebar */
-/* Pied de la sidebar */
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #202E43; /* très sombre comme sur la maquette */
+  background: #202E43; 
 }
 
 /* bloc user */
@@ -186,9 +169,7 @@ body {
 }
 
 
-/* ===========================
-   🔝 TOPBAR
-=========================== */
+/* TOPBAR */
 .topbar {
   position: fixed;
   top: 0;
@@ -227,7 +208,7 @@ body {
 .user-top {
   display: flex;
   align-items: center;
-  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  gap: 1.9rem;              
   color: var(--text-secondary);
 }
 
@@ -264,10 +245,10 @@ body {
 /* petit cercle bien rond sur la cloche */
 .notif-icon .notif-badge {
   position: absolute;
-  top: -2px;               /* ← position exacte sur l’icône */
+  top: -2px;               
   right: -4px;
-  width: 20px;             /* largeur fixe */
-  height: 20px;            /* hauteur fixe → cercle parfait */
+  width: 20px; 
+  height: 20px;            
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -278,7 +259,7 @@ body {
   font-weight: 600;
   box-shadow: 0 0 0 2px #ffffff;
   transform-origin: center;
-  padding: 0;              /* pas de padding pour éviter la déformation */
+  padding: 0;              
   animation: notifPulse 1.4s ease-in-out infinite;
 }
 
@@ -307,22 +288,18 @@ body {
   padding: 0.15rem 0.35rem;
 }
 
-/* ===========================
-   🧩 CONTENU PRINCIPAL
-=========================== */
+/* CONTENU PRINCIPAL */
 .main-content {
-  margin-left: 240px;              /* largeur de la sidebar (on ne touche pas) */
-  padding: 110px 24px 32px;        /* AVANT : 110px 40px 40px */
+  margin-left: 240px;              
+  padding: 110px 24px 32px;       
   min-height: 100vh;
   background: #f5f7fa;
   flex: 1;
 }
 
-/* ===========================
-   📊 SECTION DASHBOARD
-=========================== */
+/*  SECTION DASHBOARD */
 .dashboard-section {
-  padding: 1rem 0.5rem;            /* AVANT : 1rem 2rem */
+  padding: 1rem 0.5rem;           
 }
 
 .dashboard-section h2 {
@@ -336,12 +313,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/* ===========================
-   💡 CARTES DE STATISTIQUES
-=========================== */
-/* ===========================
-   💡 CARTES DE STATISTIQUES
-=========================== */
+/*  CARTES DE STATISTIQUES */
 .stats-container {
   display: grid;
   /* 4 colonnes fixes sur desktop */
@@ -349,7 +321,6 @@ body {
   gap: 2rem;
   margin-bottom: 3rem;
 }
-
 
 .stats-card {
   background: var(--text-white);
@@ -373,7 +344,7 @@ body {
 .stats-card > div {
   display: flex;
   flex-direction: column;
-  justify-content: center;   /* centre verticalement le bloc texte */
+  justify-content: center;   
   margin-top: 1.5rem;
   gap: 0.5rem;
 }
@@ -382,14 +353,14 @@ body {
 .stats-card h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;    /* espace entre le chiffre et le texte */
+  margin-bottom: 0.25rem;    
 }
 
 /* Texte sous le chiffre */
 .stats-card p {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  white-space: nowrap;       /* "Produits en Stock" sur une seule ligne */
+  white-space: nowrap;      
 }
 
 
@@ -430,9 +401,7 @@ body {
 }
 
 
-/* ===========================
-   📋 TABLEAU DE GESTION DES STOCKS
-=========================== */
+/* TABLEAU DE GESTION DES STOCKS */
 .table-wrapper {
   background: #fff;
   border-radius: 0.75rem;
@@ -441,11 +410,8 @@ body {
   overflow: hidden;
 }
 
-/* ===========================
-   ENTÊTE "Gestion des Stocks"
-=========================== */
+/* ENTÊTE "Gestion des Stocks" */
 
-/* Ligne complète au-dessus du tableau */
 .section-header {
   display: grid;
   grid-template-columns: auto 1fr auto; /* Titre | centre | boutons */
@@ -469,7 +435,7 @@ body {
 /* Colonne du milieu : on centre le contenu */
 .header-search {
   display: flex;
-  justify-content: center; /* centre la barre dans la colonne centrale */
+  justify-content: center; 
 }
 
 /* Barre de recherche type "pilule" */
@@ -509,8 +475,8 @@ body {
 
 /* Focus barre de recherche */
 .section-header .search-input:focus-within {
-  border-color: #2563eb;                          /* bordure bleue */
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);  /* halo bleu autour */
+  border-color: #2563eb;                          
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);  
 }
 
 /* On enlève le focus interne de l’input pour garder seulement le halo externe */
@@ -652,20 +618,18 @@ tr:hover {
 
 /* Icônes actions */
 .edit {
-  color: var(--primary-color);
+  color: #4b5563;
   cursor: pointer;
   margin-right: 0.75rem;
   font-size: 1rem;
 }
 .delete {
-  color: var(--danger-color);
+  color: #4b5563;
   cursor: pointer;
   font-size: 1rem;
 }
 
-/* ===========================
-   📱 RESPONSIVE 768px
-=========================== */
+/*  RESPONSIVE 768px */
 @media (max-width: 768px) {
   /* Hamburger visible */
   .hamburger {
@@ -683,7 +647,7 @@ tr:hover {
 
     .main-content {
     margin-left: 0 !important;
-    padding: 80px 1rem 1.5rem;  /* petit marge gauche/droite */
+    padding: 80px 1rem 1.5rem;  
     width: 100%;
     max-width: 100%;
   }
@@ -749,8 +713,6 @@ tr:hover {
     font-size: 1rem;
   }
 
-/* ... tout ce que tu as déjà (hamburger, sidebar, topbar, etc.) ... */
-
   /* Cartes en 2 colonnes (2 x 2) */
   .stats-container {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -782,9 +744,8 @@ tr:hover {
     min-width: 900px;
     font-size: 0.85rem;
   }
- /* ====== ENTÊTE DU TABLEAU ====== */
+ /*  ENTÊTE DU TABLEAU  */
   .section-header {
-    /* on casse la grille desktop et on passe en flex colonne */
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -803,7 +764,7 @@ tr:hover {
   .section-header .actions {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;          /* permet de passer sur plusieurs lignes */
+    flex-wrap: wrap;          
     align-items: center;
     gap: 0.75rem;
     justify-content: flex-start;
@@ -811,7 +772,7 @@ tr:hover {
 
   /* La barre de recherche occupe toute la 1ʳᵉ ligne */
   .section-header .search-input {
-    flex: 0 0 100%;           /* 100% de largeur sur la 1ʳᵉ ligne */
+    flex: 0 0 100%;          
     width: 100%;
     max-width: 100%;
   }
@@ -822,7 +783,6 @@ tr:hover {
     white-space: nowrap;
     padding: 0.7rem 1.2rem;
   }
-  /* ====== TABLEAU ADAPTÉ À 768px ====== */
 
   .table-wrapper {
     width: 100%;
@@ -832,19 +792,19 @@ tr:hover {
 
   .table-container {
     width: 100%;
-    overflow-x: hidden;   /* plus de scroll horizontal */
+    overflow-x: hidden;   
     height: auto;
     max-height: none;
   }
 
   table {
-    min-width: 100%;      /* plus de 900px forcés */
+    min-width: 100%;      
     font-size: 0.8rem;
   }
 
   th,
   td {
-    padding: 0.9rem 0.75rem;  /* cellules plus compactes */
+    padding: 0.9rem 0.75rem;  
   }
 
   .badge {
@@ -867,9 +827,7 @@ tr:hover {
 
 
 
-/* =========================================================
-   POPUP PROFIL (commun aux pages qui ont le modal profil)
-========================================================= */
+/* POPUP PROFIL (commun aux pages qui ont le modal profil) */
 .profile-toggle {
   display: none;
 }
