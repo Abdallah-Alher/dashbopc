@@ -237,6 +237,12 @@ a {
   color: var(--text-secondary);
 }
 
+.user-top i {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
 /* avatar rond */
 .user-top .fa-user {
   width: 36px;

@@ -231,7 +231,7 @@ body {
 }
 
 .user-top i {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   color: var(--text-secondary);
 }
 
@@ -242,6 +242,7 @@ body {
   align-items: center;
   gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
   color: var(--text-secondary);
+  text-decoration: none;
 }
 
 /* avatar rond */
@@ -271,6 +272,7 @@ body {
   color: #1e293b;
   cursor: pointer;
   font-size: 1.25rem;
+  text-decoration: none;
 }
 
 /* petit cercle bien rond sur la cloche */
