@@ -441,52 +441,61 @@ body {
   overflow: hidden;
 }
 
-/* En-tête au-dessus du tableau */
+/* ===========================
+   ENTÊTE "Gestion des Stocks"
+=========================== */
+
+/* Ligne complète au-dessus du tableau */
 .section-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* Titre | centre | boutons */
   align-items: center;
-  justify-content: space-between;
+  column-gap: 2rem;
+
   padding: 1.25rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  background: #ffffff;
 }
 
-.section-header h2 {
-  font-size: 1.25rem;
+/* Titre à gauche */
+.section-title {
+  margin: 0;
+  padding-top: 1rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  flex: 1; /* prend l'espace à gauche, pousse les actions vers la droite */
+  color: var(--text-primary);
 }
 
-/* Bloc à droite : recherche + boutons */
-.actions {
+/* Colonne du milieu : on centre le contenu */
+.header-search {
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: nowrap;
+  justify-content: center; /* centre la barre dans la colonne centrale */
 }
 
-/* Champ de recherche avec icône (PLUS d'absolute ici) */
-.section-header .search-input {
+/* Barre de recherche type "pilule" */
+.search-input {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.45rem 1.2rem;
-  background: #f9fafb;
-  border-radius: 9999px;
+
+  padding: 0.8rem 1.4rem;
+  background: #ffffff;
+  border-radius: 10px;
   border: 1px solid var(--border-color);
+
+  min-width: 260px;
   max-width: 420px;
-  width: 360px; /* largeur stable, visuellement au centre */
+  width: 100%;
 }
 
 /* Icône loupe */
-.section-header .search-input i {
+.search-input i {
   font-size: 0.95rem;
   color: var(--text-secondary);
 }
 
-/* Input à l’intérieur du champ de recherche */
-.section-header .search-input .form-input {
+/* Input interne, sans bord */
+.search-input .form-input {
   border: none;
   background: transparent;
   box-shadow: none;
@@ -494,49 +503,64 @@ body {
   padding: 0;
   min-width: 0;
   width: 100%;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Colonne de droite : boutons alignés à droite */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Boutons de droite */
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  height: 44px;
+  padding: 0 1.6rem;
+
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn-primary i,
+.btn-secondary i {
   font-size: 0.9rem;
 }
 
-/* Style général des inputs (en dehors de la barre de recherche) */
-.form-input {
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--border-color);
-  font-size: 0.875rem;
-  transition: all 0.2s ease;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
-/* Boutons génériques */
-.btn-primary,
-.btn-secondary {
-  padding: 0.8rem 1.25rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
+/* Bouton bleu plein */
 .btn-primary {
   background: var(--primary-color);
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-primary:hover {
   background: var(--primary-dark);
+  transform: translateY(-1px);
 }
 
+/* Bouton blanc bordé (Exporter) */
 .btn-secondary {
-  background: #fff;
+  background: #ffffff;
   color: var(--text-primary);
   border: 1px solid var(--border-color);
 }
+
+.btn-secondary:hover {
+  background: #f9fafb;
+}
+
 /* Tableau */
 .table-container {
   overflow-x: auto;
@@ -746,6 +770,8 @@ tr:hover {
   }
  /* ====== ENTÊTE DU TABLEAU ====== */
   .section-header {
+    /* on casse la grille desktop et on passe en flex colonne */
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 1rem 1.25rem;
@@ -756,27 +782,29 @@ tr:hover {
     font-size: 1.1rem;
   }
 
+  /* Bloc de droite : recherche + boutons */
   .section-header .actions {
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;          /* permet de passer sur plusieurs lignes */
     align-items: center;
     gap: 0.75rem;
     justify-content: flex-start;
   }
 
+  /* La barre de recherche occupe toute la 1ʳᵉ ligne */
   .section-header .search-input {
-    flex: 1 1 100%;
-    max-width: 100%;
+    flex: 0 0 100%;           /* 100% de largeur sur la 1ʳᵉ ligne */
     width: 100%;
+    max-width: 100%;
   }
 
+  /* Les deux boutons restent sur la ligne suivante, côte à côte */
   .section-header .btn-primary,
   .section-header .btn-secondary {
     white-space: nowrap;
-    padding: 0.7rem 1.1rem;
+    padding: 0.7rem 1.2rem;
   }
-
   /* ====== TABLEAU ADAPTÉ À 768px ====== */
 
   .table-wrapper {
