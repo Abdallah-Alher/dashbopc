@@ -1,11 +1,3 @@
-/* ==========================================================
-   NOTIFICATIONS – StockManager Dashboard
-   CSS dédié uniquement à notification.html
-========================================================== */
-
-/* ===========================
-   🌈 VARIABLES & RESET
-=========================== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -41,17 +33,14 @@ body {
   color: var(--text-primary);
 }
 
-/* ===========================
-   🧱 LAYOUT GLOBAL
-=========================== */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* ===== Toggle mobile & overlay sidebar ===== */
+/*  Toggle mobile & overlay sidebar  */
 .nav-toggle {
-  display: none; /* checkbox du hamburger */
+  display: none; 
 }
 
 /* Fond sombre et flou quand le menu est ouvert */
@@ -66,9 +55,7 @@ body {
   z-index: 80;
 }
 
-/* ===========================
-   📚 SIDEBAR
-=========================== */
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
@@ -199,9 +186,7 @@ body {
   background: #553648;
 }
 
-/* ===========================
-   🔝 TOPBAR
-=========================== */
+/*  TOPBAR  */
 .topbar {
   position: fixed;
   top: 0;
@@ -319,9 +304,7 @@ body {
   }
 }
 
-/* ===========================
-   🧩 CONTENU PRINCIPAL
-=========================== */
+/* CONTENU PRINCIPAL */
 .main-content {
   margin-left: 260px;
   padding: 110px 40px 40px;
@@ -330,9 +313,7 @@ body {
   flex: 1;
 }
 
-/* ===========================
-   🏷️ EN-TÊTE PAGE
-=========================== */
+/*  EN-TÊTE PAGE  */
 .page-header {
   margin-bottom: 25px;
 }
@@ -356,9 +337,7 @@ body {
   font-size: 1rem;
 }
 
-/* ===========================
-   🔢 CARTES RÉSUMÉ NOTIFS
-=========================== */
+/*  CARTES RÉSUMÉ NOTIFS  */
 .notif-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -425,9 +404,7 @@ body {
   color: #6b7280;
 }
 
-/* ===========================
-   🎛️ FILTRES NOTIFS
-=========================== */
+/*  FILTRES NOTIFS  */
 .notif-filters {
   background: #fff;
   padding: 22px;
@@ -479,9 +456,7 @@ body {
   background: #1e40af;
 }
 
-/* ===========================
-   📋 LISTE NOTIFICATIONS
-=========================== */
+/* LISTE NOTIFICATIONS */
 .notifications-list {
   margin-top: 25px;
   display: flex;
@@ -613,9 +588,7 @@ body {
   font-size: 14px;
 }
 
-/* ===========================
-   ⚙️ BARRE D'ACTION BAS
-=========================== */
+/*  BARRE D'ACTION BAS  */
 .notif-footer-actions {
   margin-top: 25px;
   background: #fff;
@@ -660,9 +633,7 @@ body {
   margin-right: 6px;
 }
 
-/* ===========================
-   👤 POPUP PROFIL
-=========================== */
+/*  POPUP PROFIL */
 .profile-toggle {
   display: none;
 }
@@ -787,9 +758,6 @@ body {
   cursor: pointer;
 }
 
-/* ===========================
-   📱 RESPONSIVE
-=========================== */
 @media (max-width: 768px) {
   .dashboard-container {
     width: 100%;
@@ -854,7 +822,6 @@ body {
     justify-content: center;
   }
 
-  /* Cartes de notifications : icône centrée en haut, texte en colonne */
   .notifications-list {
     gap: 14px;
   }
@@ -866,7 +833,7 @@ body {
   }
 
   .notif-left-icon {
-    margin: 0 auto 14px; /* icône centrée en haut */
+    margin: 0 auto 14px; 
   }
 
   .notif-actions {

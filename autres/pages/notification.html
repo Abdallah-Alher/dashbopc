@@ -14,22 +14,16 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/notification.css" />
 </head>
-
 <body>
-
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
-
     <section class="dashboard-container">
         <label for="nav-toggle" class="sidebar-overlay"></label>
-        <!-- sidebar + topbar + contenu -->
-
-        <!-- 🧭 SIDEBAR (identique à dashboard.html) -->
+        <!--  SIDEBAR (identique à dashboard.html) -->
         <aside class="sidebar">
             <div class="logo">
                 <i class="fa-solid fa-chart-line"></i>
                 <h2>Dashboard</h2>
             </div>
-
             <nav class="menu">
                 <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> Tableau de Bord</a>
                 <a href="analytics.html"><i class="fa-solid fa-chart-line"></i> Analytics</a>
@@ -38,8 +32,6 @@
                 <a href="rapports.html"><i class="fa-solid fa-chart-bar"></i> Rapports</a>
                 <a href="notification.html" class="active"><i class="fa-solid fa-bell"></i> Notifications</a>
             </nav>
-
-
             <div class="sidebar-footer">
                 <div class="user-info">
                     <i class="fa-solid fa-user-circle"></i>
@@ -50,17 +42,14 @@
                 </div>
                 <label for="open-profile" class="btn-profile"><i class="fa-solid fa-user-circle"></i>Mon Profil</label>
 
-                <!-- 🔴 Déconnexion → retour page de connexion -->
+                <!--  Déconnexion → retour page de connexion -->
                 <a href="../../index.html" class="btn-logout">
                     <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
                 </a>
-
             </div>
         </aside>
-
-        <!-- 🔝 TOPBAR -->
+        <!-- TOPBAR -->
         <header class="topbar">
-
             <label for="nav-toggle" class="topbar-burger">
                 <i class="fa-solid fa-bars"></i>
             </label>
@@ -77,13 +66,7 @@
                 <i class="fa-solid fa-circle-user"></i>
                 <span class="username">Administrateur</span>
             </div>
-
         </header>
-
-
-
-
-
         <main class="main-content">
 
             <!-- TITRE -->
@@ -91,13 +74,9 @@
                 <h1><i class="fa-solid fa-bell"></i> Notifications & Alertes</h1>
                 <p>Centre de notifications et gestion des alertes système</p>
             </section>
-
-            <!-- =============================== -->
+         
             <!--   CARTES RÉSUMÉ NOTIFICATIONS  -->
-            <!-- =============================== -->
-
             <section class="notif-stats">
-
                 <!-- Non lues -->
                 <div class="notif-card">
                     <div class="notif-left blue-bg">
@@ -109,7 +88,6 @@
                         <p>Non lues</p>
                     </div>
                 </div>
-
                 <!-- Urgentes -->
                 <div class="notif-card">
                     <div class="notif-left red-bg">
@@ -121,7 +99,6 @@
                         <p>Urgentes</p>
                     </div>
                 </div>
-
                 <!-- Aujourd’hui -->
                 <div class="notif-card">
                     <div class="notif-left green-bg">
@@ -133,28 +110,20 @@
                         <p>Aujourd’hui</p>
                     </div>
                 </div>
-
                 <!-- Total -->
                 <div class="notif-card">
                     <div class="notif-left grey-bg">
                         <i class="fa-solid fa-list"></i>
                     </div>
-
                     <div class="notif-right">
                         <h3>156</h3>
                         <p>Total</p>
                     </div>
                 </div>
-
             </section>
 
-
-            <!-- =============================== -->
-            <!--         FILTRAGE                -->
-            <!-- =============================== -->
-
+            <!--    FILTRAGE       -->
             <section class="notif-filters">
-
                 <div class="filter-group">
                     <label>Type :</label>
                     <select>
@@ -185,20 +154,15 @@
                         <option>Lues</option>
                     </select>
                 </div>
-
                 <button class="btn-filter"><i class="fa-solid fa-filter"></i> Filtrer</button>
-
             </section>
 
-
             <section class="notifications-list">
-
                 <!-- Notification : Alerte Critique -->
                 <div class="notif-item danger">
                     <div class="notif-left-icon">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                     </div>
-
                     <div class="notif-content">
                         <h3>Stock critique détecté</h3>
                         <p>
@@ -211,7 +175,6 @@
                             <button class="btn-light">Marquer comme lu</button>
                         </div>
                     </div>
-
                     <span class="notif-time">Il y a 5 minutes</span>
                 </div>
 
@@ -233,7 +196,6 @@
                             <button class="btn-light">Marquer comme lu</button>
                         </div>
                     </div>
-
                     <span class="notif-time">Il y a 15 minutes</span>
                 </div>
 
@@ -254,19 +216,15 @@
                             <button class="btn-primary">Suivre l'envoi</button>
                         </div>
                     </div>
-
                     <span class="notif-time">Il y a 1 heure</span>
                 </div>
-
             </section>
-
 
             <!-- NOTIFICATION : Sauvegarde automatique -->
             <div class="notif-item neutral">
                 <div class="notif-left-icon">
                     <i class="fa-solid fa-cloud-arrow-up"></i>
                 </div>
-
                 <div class="notif-content">
                     <h3>Sauvegarde automatique terminée</h3>
                     <p>
@@ -278,10 +236,8 @@
                         <button class="btn-light">Voir les détails</button>
                     </div>
                 </div>
-
                 <span class="notif-time">Il y a 2 heures</span>
             </div>
-
 
             <!-- NOTIFICATION : Connexion depuis un nouvel appareil -->
             <div class="notif-item warning">
@@ -300,10 +256,8 @@
                         <button class="btn-light">Sécuriser le compte</button>
                     </div>
                 </div>
-
                 <span class="notif-time">Il y a 3 heures</span>
             </div>
-
 
             <!-- BARRE DE SÉLECTION + ACTIONS -->
             <div class="notif-footer-actions">
@@ -317,18 +271,11 @@
                     <button class="btn-danger"><i class="fa-solid fa-trash"></i> Supprimer</button>
                 </div>
             </div>
-
-
-
         </main>
-
     </section>
 
-
-    <!-- ===== POPUP PROFIL ===== -->
-
+    <!--  POPUP PROFIL -->
     <input type="checkbox" id="open-profile" class="profile-toggle">
-
     <div class="profile-overlay">
         <label for="open-profile" class="profile-bg"></label>
 
@@ -383,7 +330,5 @@
             </footer>
         </div>
     </div>
-
 </body>
-
 </html>
