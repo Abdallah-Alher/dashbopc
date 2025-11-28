@@ -9,8 +9,7 @@
   --text-white: #ffffff;
   --border-color: #e2e8f0;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 24px 45px rgba(15, 23, 42, 0.4);
 }
 
 * {
@@ -21,8 +20,17 @@
 }
 
 body {
-  background: linear-gradient(135deg, #0B2B4B, #1D4E7A);
+  background: linear-gradient(135deg, #0b2b4b, #1d4e7a);
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem; /* espace autour de la carte comme sur la maquette */
+}
+
+/* permet de recentrer facilement si besoin sur d'autres pages */
+.login-page {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,51 +39,58 @@ body {
 /* CONTAINER PRINCIPAL */
 .login-container {
   background: var(--text-white);
-  border-radius: 1rem;
+  border-radius: 1.5rem; /* plus arrondi comme sur la maquette */
   box-shadow: var(--shadow-lg);
   display: flex;
   overflow: hidden;
-  max-width: 900px;
-  width: 90%;
+  max-width: 1000px;
+  width: 100%;
   min-height: 520px;
 }
 
 /* PARTIE FORMULAIRE (60%) */
 .login-form {
   flex: 0 0 60%;
-  padding: 2.5rem 3rem;
+  padding: 2.8rem 3.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .login-form h1 {
-  color: var(--primary-dark);
-  font-size: 1.75rem;
+  color: #154873;                 /* bleu plus profond comme la maquette */
+  font-size: 1.9rem;
   font-weight: 700;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   line-height: 1.3;
+  text-align: center;             /* titre centré comme sur l’image */
+}
+
+/* on limite la largeur du formulaire pour rester compact */
+.login-form form {
+  max-width: 380px;
+  margin: 0 ;
 }
 
 /* Champs de formulaire */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
   display: flex;
   flex-direction: column;
 }
 
 .form-group label {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin-bottom: 0.25rem;
 }
 
 .form-group input {
-  padding: 0.75rem;
+  padding: 0.8rem 1rem;
   border: 1px solid var(--border-color);
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  transition: border-color 0.2s ease;
+  border-radius: 0.75rem;   /* arrondi plus doux, proche de la maquette */
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .form-group input:focus {
@@ -87,9 +102,10 @@ body {
 .form-options {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  font-size: 0.875rem;
+  justify-content: flex-start;
+  margin-bottom: 1.8rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
 }
 
 .remember input {
@@ -97,16 +113,27 @@ body {
 }
 
 /*  BOUTONS & LIENS  */
+/* style générique (réutilisable par d'autres pages) */
 .btn-primary {
   background: var(--primary-color);
   color: var(--text-white);
   padding: 0.75rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.75rem;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* version spécifique pour le bouton de connexion */
+.login-form .btn-primary {
+  width: 65%;
+  max-width: 260px;
+  border-radius: 999px;           /* look “pilule” de la maquette */
+  font-size: 1rem;
+  align-self: center;
+  margin-top: 0.25rem;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:hover {
@@ -114,9 +141,14 @@ body {
 }
 
 .links {
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.links p + p {
+  margin-top: 0.35rem;
 }
 
 .links a {
@@ -134,7 +166,7 @@ body {
   flex: 0 0 40%;
   background: linear-gradient(135deg, #0B3052, #1F4D7A);
   color: var(--text-white);
-  padding: 3rem 2rem;
+  padding: 3.2rem 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,105 +175,126 @@ body {
 }
 
 .logo-circle {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background: var(--text-white);
-  color: var(--primary-dark);
+  color: #154873;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
 }
 
 .login-info h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.6rem;
+  margin-bottom: 1.1rem;
   font-weight: 700;
 }
 
 .login-info p {
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #f1f5f9;
-  max-width: 300px;
+  line-height: 1.7;
+  color: #e5f0ff;
+  max-width: 320px;
 }
 
+/* ============================
+   📱 RESPONSIVE – TABLETTE
+============================ */
 @media (max-width: 768px) {
-
-  /* Le conteneur reste en horizontal */
+  /* le container reste horizontal mais un peu plus compact */
   .login-container {
-    flex-direction: row !important;
-    width: 95%;
+    width: 100%;
     max-width: 900px;
-    min-height: 520px;
+    min-height: 500px;
   }
 
-  /* Partie formulaire */
   .login-form {
     flex: 0 0 60%;
-    padding: 1.5rem 1.8rem;
+    padding: 2rem 2.2rem;
   }
 
   .login-form h1 {
-    font-size: 1.35rem;
-    line-height: 1.3;
+    font-size: 1.55rem;
+    margin-bottom: 1.4rem;
   }
 
-  /* Partie info bleue */
-  .login-info {
-    flex: 0 0 40%;
-    padding: 2rem 1rem;
-    border-radius: 0; 
+  .login-form form {
+    max-width: 360px;
   }
 
-  .login-info h2 {
-    font-size: 1.2rem;
-  }
-
-  .logo-circle {
-    width: 55px;
-    height: 55px;
-    font-size: 1.15rem;
-  }
-
-  /* Ajustement des champs */
   .form-group input {
-    padding: 0.7rem;
+    padding: 0.75rem 0.9rem;
     font-size: 0.85rem;
   }
 
-  /* Les liens */
+  .login-form .btn-primary {
+    width: 70%;
+    max-width: 240px;
+    font-size: 0.95rem;
+  }
+
+  .login-info {
+    flex: 0 0 40%;
+    padding: 2.2rem 1.4rem;
+  }
+
+  .login-info h2 {
+    font-size: 1.3rem;
+  }
+
+  .logo-circle {
+    width: 65px;
+    height: 65px;
+    font-size: 1.3rem;
+  }
+
   .links {
-    margin-top: 1rem;
+    margin-top: 1.2rem;
     font-size: 0.8rem;
   }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .login-form h1 {
-    font-size: 1.5rem;
-  }
-
-  .login-info h2 {
-    font-size: 1.25rem;
+/* ============================
+   📱 RESPONSIVE – MOBILE
+============================ */
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem 0.75rem;
   }
 
   .login-container {
-    min-height: auto;
+    flex-direction: column;
+    max-width: 430px;
+  }
+
+  .login-form,
+  .login-info {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .login-info {
+    order: -1; /* on affiche le bloc bleu en haut sur mobile si tu préfères, à enlever sinon */
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  .login-form {
+    padding: 2rem 1.8rem 1.8rem;
+  }
+
+  .login-form .btn-primary {
+    width: 100%;
+    max-width: none;
   }
 
   .logo-circle {
     width: 60px;
     height: 60px;
     font-size: 1.25rem;
-  }
-
-  .form-group input {
-    font-size: 0.85rem;
-    padding: 0.65rem;
   }
 }

@@ -294,3 +294,255 @@ Dans les cinq cartes qui suivent l'icon revient en haut et centré, les textes s
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+:root {
+  --primary-color: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary-color: #64748b;
+  --background-color: #f8fafc;
+  --sidebar-color: #1e293b;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0B2B4B, #1D4E7A);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTAINER PRINCIPAL */
+.login-container {
+  background: var(--text-white);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  overflow: hidden;
+  max-width: 900px;
+  width: 90%;
+  min-height: 520px;
+}
+
+/* PARTIE FORMULAIRE (60%) */
+.login-form {
+  flex: 0 0 60%;
+  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form h1 {
+  color: var(--primary-dark);
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Champs de formulaire */
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.remember input {
+  margin-right: 0.4rem;
+}
+
+/*  BOUTONS & LIENS  */
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-white);
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.links {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.links a {
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* PARTIE INFO (40%) */
+.login-info {
+  flex: 0 0 40%;
+  background: linear-gradient(135deg, #0B3052, #1F4D7A);
+  color: var(--text-white);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-circle {
+  width: 70px;
+  height: 70px;
+  background: var(--text-white);
+  color: var(--primary-dark);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.login-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.login-info p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+
+  /* Le conteneur reste en horizontal */
+  .login-container {
+    flex-direction: row !important;
+    width: 95%;
+    max-width: 900px;
+    min-height: 520px;
+  }
+
+  /* Partie formulaire */
+  .login-form {
+    flex: 0 0 60%;
+    padding: 1.5rem 1.8rem;
+  }
+
+  .login-form h1 {
+    font-size: 1.35rem;
+    line-height: 1.3;
+  }
+
+  /* Partie info bleue */
+  .login-info {
+    flex: 0 0 40%;
+    padding: 2rem 1rem;
+    border-radius: 0; 
+  }
+
+  .login-info h2 {
+    font-size: 1.2rem;
+  }
+
+  .logo-circle {
+    width: 55px;
+    height: 55px;
+    font-size: 1.15rem;
+  }
+
+  /* Ajustement des champs */
+  .form-group input {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  /* Les liens */
+  .links {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .login-form h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-info h2 {
+    font-size: 1.25rem;
+  }
+
+  .login-container {
+    min-height: auto;
+  }
+
+  .logo-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.25rem;
+  }
+
+  .form-group input {
+    font-size: 0.85rem;
+    padding: 0.65rem;
+  }
+}
