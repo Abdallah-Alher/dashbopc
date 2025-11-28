@@ -1,6 +1,3 @@
-/* ===========================
-   VARIABLES GLOBALES
-=========================== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -16,9 +13,6 @@
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* ===========================
-   RESET
-=========================== */
 * {
   margin: 0;
   padding: 0;
@@ -27,16 +21,14 @@
 }
 
 body {
-  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  background: linear-gradient(135deg, #0B2B4B, #1D4E7A);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* ===========================
-   CONTAINER PRINCIPAL
-=========================== */
+/* CONTAINER PRINCIPAL */
 .login-container {
   background: var(--text-white);
   border-radius: 1rem;
@@ -48,9 +40,7 @@ body {
   min-height: 520px;
 }
 
-/* ===========================
-   PARTIE FORMULAIRE (60%)
-=========================== */
+/* PARTIE FORMULAIRE (60%) */
 .login-form {
   flex: 0 0 60%;
   padding: 2.5rem 3rem;
@@ -106,9 +96,7 @@ body {
   margin-right: 0.4rem;
 }
 
-/* ===========================
-   BOUTONS & LIENS
-=========================== */
+/*  BOUTONS & LIENS  */
 .btn-primary {
   background: var(--primary-color);
   color: var(--text-white);
@@ -141,12 +129,10 @@ body {
   text-decoration: underline;
 }
 
-/* ===========================
-   PARTIE INFO (40%)
-=========================== */
+/* PARTIE INFO (40%) */
 .login-info {
   flex: 0 0 40%;
-  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  background: linear-gradient(135deg, #0B3052, #1F4D7A);
   color: var(--text-white);
   padding: 3rem 2rem;
   display: flex;
@@ -183,13 +169,6 @@ body {
   max-width: 300px;
 }
 
-/* ===========================
-   RESPONSIVE DESIGN
-
-/* ===========================
-   RESPONSIVE 768px (TABLETTE)
-   Objectif : rester en layout horizontal comme la capture
-=========================== */
 @media (max-width: 768px) {
 
   /* Le conteneur reste en horizontal */
@@ -215,7 +194,7 @@ body {
   .login-info {
     flex: 0 0 40%;
     padding: 2rem 1rem;
-    border-radius: 0; /* garde la forme originale */
+    border-radius: 0; 
   }
 
   .login-info h2 {
