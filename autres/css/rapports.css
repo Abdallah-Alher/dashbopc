@@ -862,4 +862,102 @@ body {
     flex-direction: column;
     align-items: flex-start;
   }
+
+  /* Bouton "Voir détails" */
+.btn-details {
+  margin-right: 25rem;
+}
+
+.value-growth {
+  font-size: 28px;
+  color: #2563eb;
+  margin-left: 4rem;
+  font-weight: 600;
+}
+
+.value-abda1 {
+    margin-left: 3.5rem;
+}
+.value-abda2 {
+    margin-left: 1rem;
+}
+
+.value-abda {
+    margin-left: 1.2rem;
+}
+
+.history-table thead {
+  display: none;           
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.history-table tbody {
+  display: block;
+}
+
+.history-table tr {
+  display: block;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+/* chaque cellule devient une ligne */
+.history-table td {
+  display: block;
+  padding: 6px 0;
+  border-bottom: none;
+  font-size: 0.9rem;
+}
+
+/* 1ère ligne : nom du rapport (on garde seulement le texte) */
+.history-table td:first-child {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* libellés avant chaque info, comme dans la maquette */
+.history-table td:nth-child(2)::before {
+  content: "Type : ";
+  font-weight: 600;
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+.history-table td:nth-child(3)::before {
+  content: "Date : ";
+  font-weight: 600;
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+.history-table td:nth-child(4)::before {
+  content: "Statut : ";
+  font-weight: 600;
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+.history-table td:nth-child(5)::before {
+  content: "Actions : ";
+  font-weight: 600;
+  color: #6b7280;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ligne des icônes d’actions en bas */
+.history-table td.actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
 }
