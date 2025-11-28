@@ -328,14 +328,12 @@ body {
   align-items: center;
   gap: 0.7rem;
   color: #111827;
+  padding: 2rem 0;
 }
 
-.page-header h1 i {
-  color: #2563eb;
-}
 
 .page-header p {
-  margin-top: 5px;
+  margin-top: 20px;
   color: #6b7280;
   font-size: 1rem;
 }
@@ -345,7 +343,7 @@ body {
 =========================== */
 .report-filter {
   background: white;
-  padding: 24px;
+  padding: 50px 24px;
   border-radius: 14px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
@@ -360,14 +358,15 @@ body {
 }
 
 .filter-group label {
-  font-size: 14px;
+  font-size: 16px;
   color: #6b7280;
+  font-weight: bold;
   margin-bottom: 6px;
   display: block;
 }
 
 .filter-group select {
-  padding: 10px 14px;
+  padding: 14px;
   border-radius: 8px;
   border: 1px solid #d1d5db;
   background: #fff;
@@ -399,7 +398,7 @@ body {
 .report-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 25px;
   margin-top: 25px;
 }
 
@@ -414,7 +413,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 230px;
+  min-height: 250px;
   transition: 0.25s ease;
 }
 
@@ -425,6 +424,7 @@ body {
 
 .stat-content {
   flex: 1;
+  margin-left: 2rem;
 }
 
 .stat-left {
@@ -463,19 +463,38 @@ body {
 .value-small-inline {
   font-size: 14px;
   color: #6b7280;
+  gap: 0.5rem;
 }
 
 .value-growth {
-  font-size: 20px;
-  color: #16a34a;
-  margin-left: 10px;
+  font-size: 28px;
+  color: #2563eb;
+  margin-left: 4rem;
   font-weight: 600;
+}
+
+.value-abda1 {
+    margin-left: 4.5rem;
+}
+.value-abda2 {
+    margin-left: 2rem;
+}
+
+.value-abda {
+    margin-left: 1.2rem;
+}
+
+.bien {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 /* Bouton "Voir détails" */
 .btn-details {
   align-self: center;
-  margin-top: 18px;
+  margin-top: 10px;
   padding: 10px 22px;
   border-radius: 10px;
   border: 1px solid #d1d5db;
