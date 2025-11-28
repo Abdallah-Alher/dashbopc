@@ -48,18 +48,11 @@ body {
   display: none;
 }
 
-
-/* ===========================
-   🧱 LAYOUT GLOBAL
-=========================== */
 .dashboard-container {
   display: flex;
   min-height: 100vh;
 }
 
-/* ===========================
-   📚 SIDEBAR
-=========================== */
 .sidebar {
   position: fixed;
   top: 0;
@@ -119,12 +112,11 @@ body {
   color: #fff;
 }
 
-/* Pied de sidebar */
 /* Pied de la sidebar */
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #202E43; /* très sombre comme sur la maquette */
+  background: #202E43; 
 }
 
 /* bloc user */
@@ -191,10 +183,7 @@ body {
   background: #553648;
 }
 
-
-/* ===========================
-   🔝 TOPBAR
-=========================== */
+/*  TOPBAR */
 .topbar {
   position: fixed;
   top: 0;
@@ -230,12 +219,11 @@ body {
   color: var(--text-secondary);
 }
 
-/* Icône cloche */
 /* Zone à droite dans la topbar */
 .user-top {
   display: flex;
   align-items: center;
-  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  gap: 1.9rem;             
   color: var(--text-secondary);
 }
 
@@ -272,10 +260,10 @@ body {
 /* petit cercle bien rond sur la cloche */
 .notif-icon .notif-badge {
   position: absolute;
-  top: -2px;               /* ← position exacte sur l’icône */
+  top: -2px;               
   right: -4px;
-  width: 20px;             /* largeur fixe */
-  height: 20px;            /* hauteur fixe → cercle parfait */
+  width: 20px;             
+  height: 20px;            
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -286,7 +274,7 @@ body {
   font-weight: 600;
   box-shadow: 0 0 0 2px #ffffff;
   transform-origin: center;
-  padding: 0;              /* pas de padding pour éviter la déformation */
+  padding: 0;              
   animation: notifPulse 1.4s ease-in-out infinite;
 }
 
@@ -303,9 +291,7 @@ body {
   }
 }
 
-/* ===========================
-   🧩 CONTENU PRINCIPAL
-=========================== */
+/*  CONTENU PRINCIPAL */
 .main-content {
   margin-left: 260px;
   padding: 110px 40px 40px;
@@ -314,9 +300,7 @@ body {
   flex: 1;
 }
 
-/* ===========================
-   🏷️ EN-TÊTE PAGE
-=========================== */
+/* EN-TÊTE PAGE */
 .page-header {
   margin-bottom: 25px;
 }
@@ -338,9 +322,7 @@ body {
   font-size: 1rem;
 }
 
-/* ===========================
-   🎛️ FILTRES RAPPORTS
-=========================== */
+/*  FILTRES RAPPORTS */
 .report-filter {
   background: white;
   padding: 50px 24px;
@@ -392,9 +374,7 @@ body {
   background: #1d4ed8;
 }
 
-/* ===========================
-   📊 CARTES STATISTIQUES
-=========================== */
+/*  CARTES STATISTIQUES */
 .report-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -508,19 +488,18 @@ body {
   background: #f1f5f9;
 }
 
-/* ===========================
-   🕒 HISTORIQUE DES RAPPORTS
-=========================== */
+/* HISTORIQUE DES RAPPORTS  */
 .history-section {
   background: #fff;
   border-radius: 16px;
-  padding: 28px;
+  /* padding: 28px; */
   margin-top: 28px;
   border: 1px solid #e5e7eb;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
   min-height: 420px;
   padding-bottom: 40px;
 }
+
 
 .history-section .section-title {
   font-size: 20px;
@@ -531,9 +510,16 @@ body {
   gap: 0.5rem;
 }
 
+.section-title {
+  background-color: #f8fafc;
+  padding: 40px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .history-table-container {
-  margin-top: 15px;
   overflow-x: auto;
+  padding: 20px 28px;
 }
 
 .history-table {
@@ -548,15 +534,15 @@ body {
 
 .history-table th {
   text-align: left;
-  padding: 14px 18px;
-  font-size: 15px;
+  padding: 35px 18px;
+  font-size: 20px;
   font-weight: 700;
   color: #111827;
 }
 
 .history-table td {
-  padding: 14px 18px;
-  font-size: 15px;
+  padding: 35px 18px;
+  font-size: 18px;
   color: #374151;
   border-bottom: 1px solid #f1f5f9;
 }
@@ -567,36 +553,7 @@ body {
 
 .file-icon {
   margin-right: 10px;
-  font-size: 18px;
-}
-
-/* couleurs icônes fichier */
-.file-icon.pdf {
-  color: #c81e1e;
-}
-.file-icon.xls {
-  color: #15803d;
-}
-.file-icon.loading {
-  color: #2563eb;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Statuts */
-.status.done {
-  color: #059669;
-  font-weight: 600;
-}
-
-.status.pending {
-  color: #d97706;
-  font-weight: 600;
+  font-size: 20px;
 }
 
 /* Actions */
@@ -611,9 +568,7 @@ body {
   color: #2563eb;
 }
 
-/* ===========================
-   👤 POPUP PROFIL
-=========================== */
+/* POPUP PROFIL */
 .profile-toggle {
   display: none;
 }
@@ -641,7 +596,7 @@ body {
 
 .profile-box {
   position: relative;
-  width: 650px;
+  width: 525px;
   max-height: 90vh;
   background: white;
   border-radius: 14px;
@@ -738,16 +693,109 @@ body {
   cursor: pointer;
 }
 
-/* ===========================
-   📱 RESPONSIVE
-=========================== */
+/* RESPONSIVE */
 @media (max-width: 768px) {
+  /* Contenu principal plein écran */
+  .main-content {
+    margin-left: 0;
+    padding: 80px 1rem 24px;
+  }
+
+  /* Titre un peu plus compact */
+  .page-header h1 {
+    font-size: 1.6rem;
+    padding: 1rem 0 0.5rem;
+  }
+
+  .page-header p {
+    margin-top: 6px;
+    font-size: 0.9rem;
+  }
+
+  /* ===== Filtres ===== */
+  .report-filter {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .filter-group {
+    width: 35%;
+  }
+
+  .filter-group select {
+    width: 100%;
+  }
+
+  .btn-generate {
+    width: 35%;
+    justify-content: center;
+  }
+
+  /* Cartes statistiques  */
+  .report-stats {
+    grid-template-columns: 1fr;   /* 1 carte par ligne */
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .clean-card {
+    min-height: auto;
+    padding: 18px 16px 20px;
+  }
+
+  .stat-content {
+    margin-left: 0; 
+  }
+
+  .stat-left {
+    align-items: flex-start;
+  }
+
+  .value-growth,
+  .value-abda1,
+  .value-abda2,
+  .value-abda {
+    margin-left: 0;
+    display: inline-block;
+  }
+
+  .value-big {
+    font-size: 22px;
+  }
+
+  /* Tableau historique  */
+  .history-section {
+    margin-top: 20px;
+    border-radius: 12px;
+  }
+
+  .section-title {
+    padding: 16px;
+  }
+
+  .history-table-container {
+    padding: 12px 12px 20px;
+    overflow-x: auto; 
+  }
+
+  .history-table th,
+  .history-table td {
+    padding: 10px 8px;
+    font-size: 0.9rem;
+  }
   .dashboard-container {
     width: 100%;
     overflow-x: hidden;
   }
 
-  /* ✅ TOPBAR compacte */
+
+  /*  TOPBAR compacte */
   .topbar {
     left: 0;
     height: 65px;
@@ -755,7 +803,7 @@ body {
     gap: 1rem;
   }
 
-  /* ✅ Afficher l’icône hamburger en mobile */
+  /*  Afficher l’icône hamburger en mobile */
   .hamburger {
     display: block;
     font-size: 1.8rem;
@@ -764,25 +812,25 @@ body {
     margin-right: 0.5rem;
   }
 
-  /* ✅ Contenu centré sans marge gauche de la sidebar */
+  /*  Contenu centré sans marge gauche de la sidebar */
   .main-content {
     margin-left: 0;
     padding: 80px 1rem 24px;
   }
 
-  /* ✅ Sidebar coulissante */
+  /*  Sidebar coulissante */
   .sidebar {
-    left: -260px;                  /* cachée hors écran */
+    left: -260px;                  
     width: 240px;
     height: 100vh;
     transition: left 0.3s ease;
     z-index: 999;
   }
 
-  /* ✅ Overlay plein écran (flou) */
+  /*  Overlay plein écran (flou) */
   .overlay {
     position: fixed;
-    display: block;                /* existe en mobile, mais invisible au départ */
+    display: block;                
     top: 0;
     left: 0;
     width: 100%;
@@ -795,17 +843,17 @@ body {
     z-index: 900;
   }
 
-  /* ✅ Quand on coche le menu (on clique sur le hamburger) */
+  /*  Quand on coche le menu (on clique sur le hamburger) */
   .menu-toggle:checked ~ .dashboard-container .sidebar {
-    left: 0;                       /* la sidebar glisse */
+    left: 0;                       
   }
 
   .menu-toggle:checked ~ .dashboard-container .overlay {
-    opacity: 1;                    /* le fond devient visible */
-    pointer-events: auto;          /* on peut cliquer dessus */
+    opacity: 1;                    
+    pointer-events: auto;          
   }
 
-  /* ✅ Mise en colonne des cartes/statistiques comme avant */
+  /*  Mise en colonne des cartes/statistiques comme avant */
   .report-stats {
     grid-template-columns: 1fr;
   }
@@ -815,4 +863,3 @@ body {
     align-items: flex-start;
   }
 }
-

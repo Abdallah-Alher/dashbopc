@@ -276,3 +276,21 @@ Dans les cinq cartes qui suivent l'icon revient en haut et centré, les textes s
   align-items: flex-start;
   line-height: 0;
 }
+
+/* couleurs icônes fichier */
+.file-icon.pdf {
+  color: #c81e1e;
+}
+.file-icon.xls {
+  color: #15803d;
+}
+.file-icon.loading {
+  color: #2563eb;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
