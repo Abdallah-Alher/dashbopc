@@ -857,7 +857,7 @@ margin-bottom: 20px;
   .notif-time {
     position: static;
     margin-top: 8px;
-    align-self: flex-end; /* heure en bas à droite */
+    align-self: flex-end; 
   }
 
   /* Barre d’actions en bas */

@@ -111,7 +111,7 @@ a {
 .sidebar-footer {
   padding: 1.5rem;
   border-top: 1px solid rgba(15, 23, 42, 0.9);
-  background: #202E43; /* très sombre comme sur la maquette */
+  background: #202E43; 
 }
 
 /* bloc user */
@@ -224,7 +224,7 @@ a {
 .user-top {
   display: flex;
   align-items: center;
-  gap: 1.9rem;              /* ← plus d’espace entre cloche et profil */
+  gap: 1.9rem;              
   color: var(--text-secondary);
 }
 
@@ -656,7 +656,7 @@ a {
   padding: 0 1.25rem 1rem;
 }
 
-/* === Répartition par Catégorie : % en face de la barre === */
+/*  Répartition par Catégorie : % en face de la barre  */
 .split-list li {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -815,7 +815,6 @@ a {
   border-radius: 14px;
 }
 
-/* RESPONSIVE – ANALYTICS */
 
 @media (max-width: 768px) {
   /* Hamburger visible */
@@ -965,8 +964,6 @@ a {
   }
 }
 
-
-/* POPUP PROFIL (commun aux pages qui ont le modal profil) */
 .profile-toggle {
   display: none;
 }

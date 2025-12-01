@@ -85,3 +85,12 @@ page pour l’overlay, avec des règles .nav-toggle:checked ~ .sidebar et .nav-t
 
 - ALHER MATOU Abdallah
 - Formation CODELOCCOL
+
+Quelques Captures :
+![](./autres/images/C1.png)
+![](./autres/images/C2.png)
+![](./autres/images/C3.png)
+![](./autres/images/C4.png)
+![](./autres/images/C5.png)
+![](./autres/images/C6.png)
+
